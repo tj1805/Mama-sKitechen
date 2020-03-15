@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="ProjectOne.Views.FavoritePage"
+              xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:fonts="clr-namespace:ProjectOne.Models"
+            >
+    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <Grid.RowDefinitions>
+           <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0"  Margin="10">
+                <Label  Text="Favorite" Style="{StaticResource BoldText}" 
+                        TextColor="{StaticResource BGcolor}"
+                        VerticalOptions="Center" HorizontalOptions="Start"/>
+                <Label Text="{x:Static fonts:IconFont.Cart}" 
+                         FontFamily="{StaticResource Fonts}"
+                       TextColor="{StaticResource BGcolor}"
+                       FontSize="20"
+                      HorizontalOptions="End"
+                       VerticalOptions="Center"/>
+            </Grid>
+
+
+            <ListView 
+                                Grid.Row="1"
+                                x:Name="RequestsVarietyList"
+                                CachingStrategy="RecycleElement"
+                                HasUnevenRows="True"
+                                IsPullToRefreshEnabled="false"
+                                 ItemsSource="{Binding Walkthroughs}"
+                                SelectionMode="None"
+                                SeparatorVisibility="None"
+                                 VerticalOptions="FillAndExpand">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <yummy:PancakeView
+                                                Margin="5,5,5,5"
+                                                BackgroundColor="White"
+                                                HasShadow="True"
+                                                CornerRadius="50"
+                                                HeightRequest="200">
+                                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="270">
+                                    <Image Source="{Binding Image}" Aspect="Fill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                                    <StackLayout Margin="30" VerticalOptions="EndAndExpand">
+                                        <Label Text="{Binding Heading}" TextColor="White" FontSize="35" />
+                                        <Label Text="{Binding Caption}" TextColor="White" FontSize="15" />
+                                    </StackLayout>
+                                </Grid>
+                            </yummy:PancakeView>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
+            
+            
+        </Grid>
+        
+        
+        <Grid Grid.Row="1" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+
+            </Grid.ColumnDefinitions>
+            <BoxView Grid.ColumnSpan="3"
+                     BackgroundColor="{StaticResource BGcolor}"
+                     HorizontalOptions="FillAndExpand"
+                     VerticalOptions="FillAndExpand"
+                     />
+            <yummy:PancakeView   
+                Grid.Column="0"
+               >
+                <yummy:PancakeView.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding HomeCommand }"/>
+                </yummy:PancakeView.GestureRecognizers>
+                <StackLayout   VerticalOptions="Center"
+                       HorizontalOptions="Center">
+                    <Label Text="{x:Static fonts:IconFont.Home}"
+               FontFamily="{StaticResource Fonts}"
+                           HorizontalOptions="Center"
+               TextColor="White"
+                           FontSize="20"
+                         />
+
+                    <Label Text="Home" FontSize="14" HorizontalOptions="Center"
+                       TextColor="White"/>
+                </StackLayout>
+            </yummy:PancakeView>
+
+            <yummy:PancakeView   
+                Grid.Column="1" 
+                  Margin="0,-30,0,0" VerticalOptions="Center"
+                 HorizontalOptions="Center"
+                 HeightRequest="100"
+                 WidthRequest="100"
+                 BackgroundColor="{StaticResource BGcolor}"
+                                CornerRadius="100"
+                BorderThickness="10"
+                BorderColor="White"
+                >
+               
+                <StackLayout VerticalOptions="Center"
+                       HorizontalOptions="Center">
+                    <Label Text="{x:Static fonts:IconFont.Heart}"
+               FontFamily="{StaticResource Fonts}"
+               TextColor="Red"
+                    FontSize="20"
+                       HorizontalOptions="Center"/>
+                    <Label Text="Favorite" FontSize="14" HorizontalOptions="Center"
+                       TextColor="{StaticResource Greencolor}"/>
+                </StackLayout>
+            </yummy:PancakeView>
+
+            <!--<yummy:PancakeView   
+                Grid.Column="1" 
+                  Margin="0,-250,0,0" VerticalOptions="Center"
+                 HorizontalOptions="Center"
+                 HeightRequest="80"
+                 WidthRequest="80"
+                 BackgroundColor="{StaticResource BGcolor}"
+                                CornerRadius="100,100,100,100"
+                >
+                --><!--<yummy:PancakeView.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding }" />
+                </yummy:PancakeView.GestureRecognizers>--><!--
+                <StackLayout VerticalOptions="Center"
+                       HorizontalOptions="Center">
+                    <Label Text="{x:Static fonts:IconFont.Heart}"
+               FontFamily="{StaticResource Fonts}"
+               TextColor="Red"
+                    FontSize="20"
+                       HorizontalOptions="Center"/>
+                    <Label Text="Favorite" FontSize="14" HorizontalOptions="Center"
+                       TextColor="{StaticResource Greencolor}"/>
+                </StackLayout>
+            </yummy:PancakeView>-->
+
+
+            <yummy:PancakeView   
+                Grid.Column="2"
+                >
+                <yummy:PancakeView.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ProfileCommand }"/>
+                </yummy:PancakeView.GestureRecognizers>
+                <StackLayout VerticalOptions="Center"
+                       HorizontalOptions="Center">
+                    <Label Text="{x:Static fonts:IconFont.Account}"
+               FontFamily="{StaticResource Fonts}"
+                            FontSize="20"
+               TextColor="White"
+                          
+                       HorizontalOptions="Center"/>
+                    <Label Text="Profile" FontSize="14" HorizontalOptions="Center"
+                       TextColor="White"/>
+                </StackLayout>
+            </yummy:PancakeView>
+
+        </Grid>
+
+
+    </Grid>
+
+</ContentPage>

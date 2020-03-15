@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<prism:PrismApplication xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.DryIoc;assembly=Prism.DryIoc.Forms"
+                         xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             x:Class="ProjectOne.App"
+                        >
+	<Application.Resources>
+
+		<!-- Application resource dictionary -->
+
+        <!--IconFonts-->
+        <OnPlatform x:Key="Fonts" x:TypeArguments="x:String">
+            <On Platform="Android" Value="materialdesignicons-webfont.ttf#Material Design Icons"/>
+            <On Platform="iOS" Value="Material Design Icons"/>
+        </OnPlatform>
+
+        <!--Colors-->
+        <Color x:Key="BGcolor">#010088</Color>
+        <Color x:Key="Greencolor">#00FF01</Color>
+        <Color x:Key="WhiteColor">#FFFFFF</Color>
+
+        <!--Font Families-->
+        <!--Source Serif Pro-->
+
+        <OnPlatform x:Key="RegularFont" x:TypeArguments="x:String">
+            <On Platform="Android" Value="SourceSerifPro-Regular.ttf#Source Serif Pro" />
+            <On Platform="iOS" Value="SourceSerifPro-Regular" />
+        </OnPlatform>
+
+
+        <OnPlatform x:Key="SemiBoldFont" x:TypeArguments="x:String">
+            <On Platform="Android" Value="SourceSerifPro-SemiBold.ttf#Source Serif Pro" />
+            <On Platform="iOS" Value="SourceSerifPro-SemiBold" />
+        </OnPlatform>
+        
+        <OnPlatform x:Key="BoldFont" x:TypeArguments="x:String">
+            <On Platform="Android" Value="SourceSerifPro-Bold.ttf#Source Serif Pro"/>
+            <On Platform="iOS" Value="SourceSerifPro-Bold" />
+        </OnPlatform>
+
+
+
+        <!--Style-->
+        <Style x:Key="BoldText" TargetType="Label">
+            <Setter Property="FontFamily" Value="{StaticResource  BoldFont}"/>
+            <Setter Property="FontSize" Value="30" />
+            <Setter Property="TextColor"  Value="{StaticResource Greencolor}"/>
+        </Style>
+
+        <Style x:Key="SemiBoldText" TargetType="Label">
+            <Setter Property="FontFamily" Value="{StaticResource SemiBoldFont}"/>
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="TextColor"  Value="{StaticResource Greencolor}"/>
+        </Style>
+
+        <Style x:Key="SemiBoldTextSubtitle" TargetType="Label">
+            <Setter Property="FontFamily" Value="{StaticResource SemiBoldFont}"/>
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="TextColor"  Value="{StaticResource Greencolor}"/>
+        </Style>
+
+        <Style x:Key="ButttonStyle" TargetType="Button">
+            <Setter Property="FontFamily" Value="{StaticResource BoldFont}"/>
+            <Setter Property="FontSize" Value="Small"/>
+            <Setter Property="TextColor" Value="{StaticResource Greencolor}"/>
+        </Style>
+
+        <!--Pancake view color rainbow color-->
+
+        <yummy:GradientStopCollection x:Key="Rainbow">
+            <yummy:GradientStop Color="#f3855b" Offset="0" />
+            <yummy:GradientStop Color="#fbcf93" Offset="0.2" />
+            <yummy:GradientStop Color="#fbe960" Offset="0.4" />
+            <yummy:GradientStop Color="#a0e67a" Offset="0.6" />
+            <yummy:GradientStop Color="#33c6ee" Offset="0.8" />
+            <yummy:GradientStop Color="#c652ba" Offset="1" />
+        </yummy:GradientStopCollection>
+
+
+        <!--Generic style-->
+        
+        <!--<Style TargetType="Grid">
+            <Setter Property="RowSpacing" Value="0" />
+            <Setter Property="ColumnSpacing" Value="0" />
+        </Style>
+
+        <Style TargetType="StackLayout">
+            <Setter Property="Spacing" Value="0" />
+        </Style>-->
+
+
+
+        <!--old styles-->
+        <!--<Style x:Key="BoldText" TargetType="Label">
+            <Setter Property="FontFamily" Value="{StaticResource  BoldFont}"/>
+            <Setter Property="FontSize" Value="30" />
+        </Style> 
+        
+        <Style x:Key="SemiBoldText" TargetType="Label">
+            <Setter Property="FontFamily" Value="{StaticResource SemiBoldFont}"/>
+            <Setter Property="FontSize" Value="20" />
+        </Style>--> 
+        
+        
+	</Application.Resources>
+</prism:PrismApplication>

@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="ProjectOne.Views.ShellPage"
+        Shell.NavBarIsVisible="False"
+       Shell.TabBarBackgroundColor="{StaticResource BGcolor}"
+       Shell.TabBarTitleColor="{StaticResource Greencolor}"
+       Shell.UnselectedColor="{StaticResource WhiteColor}"
+       xmlns:views="clr-namespace:ProjectOne.Views"
+       xmlns:fonts="clr-namespace:ProjectOne.Models"
+       >
+    <TabBar>
+        <Tab Title="Home">
+            <Tab.Icon>
+                <FontImageSource
+                    FontFamily="{StaticResource Fonts}"
+                    Glyph="{x:Static fonts:IconFont.Home}"
+                    >
+                    <FontImageSource.Size>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="iOS">20</On>
+                            <On Platform="Android">50</On>
+                        </OnPlatform>
+                    </FontImageSource.Size>
+                </FontImageSource>
+
+            </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate views:HomePage}" />
+        </Tab>
+
+        <Tab Title="Favorite">
+            <Tab.Icon>
+                <FontImageSource
+                    FontFamily="{StaticResource Fonts}"
+                    Glyph="{x:Static fonts:IconFont.Heart}"
+                    Color="Blue">
+                    <FontImageSource.Size>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="iOS">20</On>
+                            <On Platform="Android">50</On>
+                        </OnPlatform>
+                    </FontImageSource.Size>
+                </FontImageSource>
+
+            </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate views:FavoritePage}" />
+        </Tab>
+
+        <Tab Title="Profile">
+            <Tab.Icon>
+                <FontImageSource
+                    FontFamily="{StaticResource Fonts}"
+                    Glyph="{x:Static fonts:IconFont.Account}"
+                    Color="Blue">
+                    <FontImageSource.Size>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="iOS">20</On>
+                            <On Platform="Android">50</On>
+                        </OnPlatform>
+                    </FontImageSource.Size>
+                </FontImageSource>
+
+            </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate views:ProfilePage}" />
+        </Tab>
+
+
+    </TabBar>
+
+</Shell>

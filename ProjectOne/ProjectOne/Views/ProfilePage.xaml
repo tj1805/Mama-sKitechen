@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="ProjectOne.Views.ProfilePage"
+              xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:fonts="clr-namespace:ProjectOne.Models"
+             >
+    <Grid  
+        HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0"  Margin="10" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Text="User's Profile" Style="{StaticResource BoldText}" 
+                        TextColor="{StaticResource BGcolor}"
+                        VerticalOptions="Center" HorizontalOptions="Center" />
+
+            <yummy:PancakeView
+                              Grid.Row="1"
+                                VerticalOptions="Center"
+                                HorizontalOptions="Center"
+                              HeightRequest="250" 
+                               WidthRequest="250"
+                               CornerRadius="100"
+                                BorderThickness="10"
+                            BorderColor="{StaticResource BGcolor}"
+                                >
+                <Image Source="foodsix" Aspect="AspectFill"/>
+
+            </yummy:PancakeView>
+
+            <StackLayout Grid.Row="2">
+                <yummy:PancakeView   
+                            CornerRadius="20">
+                    <Label Text="Ade West"/>
+                </yummy:PancakeView>
+            </StackLayout>
+            
+        </Grid>
+        
+        <Grid Grid.Row="1" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+
+            </Grid.ColumnDefinitions>
+            <BoxView Grid.ColumnSpan="3"
+                     BackgroundColor="{StaticResource BGcolor}"
+                     HorizontalOptions="FillAndExpand"
+                     VerticalOptions="FillAndExpand"
+                     />
+            <yummy:PancakeView   
+                Grid.Column="0"
+               >
+                <yummy:PancakeView.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding HomeCommand }"/>
+                </yummy:PancakeView.GestureRecognizers>
+                <StackLayout   VerticalOptions="Center"
+                       HorizontalOptions="Center">
+                    <Label Text="{x:Static fonts:IconFont.Home}"
+               FontFamily="{StaticResource Fonts}"
+                           HorizontalOptions="Center"
+               TextColor="White"
+                           FontSize="20"
+                         />
+                  
+                    <Label Text="Home" FontSize="14" HorizontalOptions="Center"
+                        TextColor="White"/>
+                </StackLayout>
+            </yummy:PancakeView>
+
+            <yummy:PancakeView   
+                Grid.Column="1" 
+                  Margin="0,-30,0,0" VerticalOptions="Center"
+                 HorizontalOptions="Center"
+                 HeightRequest="100"
+                 WidthRequest="100"
+                 BackgroundColor="{StaticResource BGcolor}"
+                                CornerRadius="100,100,100,100"
+                BorderThickness="10"
+                BorderColor="White"
+                >
+                <yummy:PancakeView.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding FavoriteCommand }"/>
+                </yummy:PancakeView.GestureRecognizers>
+                <StackLayout VerticalOptions="Center"
+                       HorizontalOptions="Center">
+                    <Label Text="{x:Static fonts:IconFont.Heart}"
+               FontFamily="{StaticResource Fonts}"
+               TextColor="Red"
+                    FontSize="20"
+                       HorizontalOptions="Center"/>
+                    <Label Text="Favorite" FontSize="14" HorizontalOptions="Center"
+                       TextColor="White"/>
+                </StackLayout>
+            </yummy:PancakeView>
+
+         
+            <yummy:PancakeView   
+                Grid.Column="2"
+                >
+                
+                <StackLayout VerticalOptions="Center"
+                       HorizontalOptions="Center">
+                    <Label Text="{x:Static fonts:IconFont.Account}"
+               FontFamily="{StaticResource Fonts}"
+                            FontSize="20"
+                TextColor="{StaticResource Greencolor}"
+                          
+                       HorizontalOptions="Center"/>
+                    <Label Text="Profile" FontSize="14" HorizontalOptions="Center"
+                       TextColor="{StaticResource Greencolor}"/>
+                </StackLayout>
+            </yummy:PancakeView>
+            
+          
+            <yummy:PancakeView   
+                Grid.Column="2" 
+                  Margin="0,-200,0,0" VerticalOptions="Center"
+                 HorizontalOptions="Center"
+                 HeightRequest="80"
+                 WidthRequest="90"
+                 BackgroundColor="{StaticResource BGcolor}"
+                                CornerRadius="80"
+                BorderThickness="5"
+                BorderColor="Firebrick"
+                >
+                <!--<yummy:PancakeView.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding }" />
+                </yummy:PancakeView.GestureRecognizers>-->
+                <StackLayout VerticalOptions="Center"
+                       HorizontalOptions="Center">
+                    <Label Text="{x:Static fonts:IconFont.Phone}"
+               FontFamily="{StaticResource Fonts}"
+               TextColor="Red"
+                    FontSize="20"
+                       HorizontalOptions="Center"/>
+                    <Label Text="Contact Us" FontSize="14" HorizontalOptions="Center"
+                       TextColor="{StaticResource Greencolor}"/>
+                </StackLayout>
+            </yummy:PancakeView>
+
+
+        </Grid>
+
+
+    </Grid>
+</ContentPage>

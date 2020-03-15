@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProjectOne.Views.MainPage"
+             xmlns:fonts="clr-namespace:ProjectOne.Models"
+             Title="{Binding Title}"
+             BackgroundImageSource="logo03">
+
+    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+        <Label Text="Welcome to Xamarin Forms and Prism!"
+                Style="{StaticResource SemiBoldText}"
+               />
+        <Label Text="Hello"
+               Style="{StaticResource BoldText}"/>
+        <Label Text="{x:Static fonts:IconFont.Car}"
+               FontFamily="{StaticResource Fonts}"
+               TextColor="Red"/>
+        <Label Text="Eyo"/>
+        <Button Text="Navigate to ViewA" Command="{Binding NavigateCommand }"/>
+
+    </StackLayout>
+
+</ContentPage>  

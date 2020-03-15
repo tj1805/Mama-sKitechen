@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="ProjectOne.Views.AllAfricanFoodPage"
+              xmlns:fonts="clr-namespace:ProjectOne.Models"
+              xmlns:cv="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+             xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             NavigationPage.HasNavigationBar="False"
+             >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0"  Margin="10"  >
+            <Label  Text="African" Style="{StaticResource BoldText}" 
+                        TextColor="{StaticResource BGcolor}"
+                        VerticalOptions="Center" HorizontalOptions="Start"/>
+            <Label Text="{x:Static fonts:IconFont.Cart}" 
+                         FontFamily="{StaticResource Fonts}"
+                       TextColor="{StaticResource BGcolor}"
+                       FontSize="20"
+                      HorizontalOptions="End"
+                       VerticalOptions="Center"/>
+        </Grid>
+
+        <CollectionView Grid.Row="1"
+            ItemsSource="{Binding Walkthroughs}"
+             SelectedItem="{Binding FoodSelection}"   
+              SelectionChangedCommand="{Binding NavigateSelectionCommand}"
+                         SelectionMode="Single"
+                       >
+            <!--<CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical"
+                                Span="2" HorizontalItemSpacing="10"
+                                 VerticalItemSpacing="10"/>
+            </CollectionView.ItemsLayout>-->
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+
+                    <yummy:PancakeView
+                                                Margin="5,5,5,5"
+                                                BackgroundColor="White"
+                                                HasShadow="True"
+                                                CornerRadius="10"
+                                                HeightRequest="150">
+                        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HeightRequest="270">
+
+                            <Image Source="{Binding Image}" Aspect="Fill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                            <Label 
+                                HorizontalOptions="End"
+                                
+                                Text="{x:Static fonts:IconFont.Heart}"
+               FontFamily="{StaticResource Fonts}"
+               TextColor="{StaticResource BGcolor}"
+                    FontSize="20"
+                       />
+
+                            <StackLayout Margin="30" VerticalOptions="EndAndExpand">
+                                <Label Text="{Binding Heading}" TextColor="White" FontSize="35" />
+                                <Label Text="{Binding Caption}" TextColor="White" FontSize="15" />
+                            </StackLayout>
+
+                        </Grid>
+                    </yummy:PancakeView>
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </Grid>
+
+</ContentPage>
