@@ -1,75 +1,106 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:prism="http://prismlibrary.com"
-             prism:ViewModelLocator.AutowireViewModel="True"
-             x:Class="ProjectOne.Views.AllAfricanFoodPage"
-              xmlns:fonts="clr-namespace:ProjectOne.Models"
-              xmlns:cv="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
-             xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
-             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-             NavigationPage.HasNavigationBar="False"
-             >
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Grid Grid.Row="0"  Margin="10"  >
-            <Label  Text="African" Style="{StaticResource BoldText}" 
-                        TextColor="{StaticResource BGcolor}"
-                        VerticalOptions="Center" HorizontalOptions="Start"/>
-            <Label Text="{x:Static fonts:IconFont.Cart}" 
-                         FontFamily="{StaticResource Fonts}"
-                       TextColor="{StaticResource BGcolor}"
-                       FontSize="20"
-                      HorizontalOptions="End"
-                       VerticalOptions="Center"/>
+<ContentPage
+    x:Class="ProjectOne.Views.AllAfricanFoodPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:c="clr-namespace:ProjectOne.Converters"
+    xmlns:cv="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+    xmlns:fonts="clr-namespace:ProjectOne.Models"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+    xmlns:prism="http://prismlibrary.com"
+    xmlns:sharedTransitions="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions"
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    ios:Page.UseSafeArea="true"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    sharedTransitions:SharedTransitionNavigationPage.TransitionSelectedGroup="{Binding SelectedDogId}"
+    NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <c:ItemTappedEventArgsConverter x:Key="itemTappedEventArgsConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid Margin="10" RowDefinitions="Auto,*">
+        <Grid Grid.Row="0" ColumnDefinitions="Auto,*,Auto">
+            <Label
+                Grid.Column="0"
+                FontFamily="{StaticResource Fonts}"
+                FontSize="20"
+                HorizontalOptions="Start"
+                Text="{x:Static fonts:IconFont.ArrowLeft}"
+                TextColor="{StaticResource BGcolor}"
+                VerticalOptions="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding GoBackCommand}}" />
+                </Label.GestureRecognizers>
+            </Label>
+            <Label
+                Grid.Column="1"
+                sharedTransitions:Transition.Name="africantransition"
+                HorizontalOptions="Center"
+                Style="{StaticResource BoldText}"
+                Text="African"
+                TextColor="{StaticResource BGcolor}"
+                VerticalOptions="Center" />
+            <Label
+                Grid.Column="2"
+                FontFamily="{StaticResource Fonts}"
+                FontSize="20"
+                HorizontalOptions="End"
+                Text="{x:Static fonts:IconFont.Cart}"
+                TextColor="{StaticResource BGcolor}"
+                VerticalOptions="Center" />
         </Grid>
 
-        <CollectionView Grid.Row="1"
+        <CollectionView
+            Grid.Row="1"
+            ItemSizingStrategy="MeasureAllItems"
+            ItemTemplate="{StaticResource MainCollection}"
             ItemsSource="{Binding Walkthroughs}"
-             SelectedItem="{Binding FoodSelection}"   
-              SelectionChangedCommand="{Binding NavigateSelectionCommand}"
-                         SelectionMode="Single"
-                       >
-            <!--<CollectionView.ItemsLayout>
-                <GridItemsLayout Orientation="Vertical"
-                                Span="2" HorizontalItemSpacing="10"
-                                 VerticalItemSpacing="10"/>
-            </CollectionView.ItemsLayout>-->
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-
-                    <yummy:PancakeView
-                                                Margin="5,5,5,5"
-                                                BackgroundColor="White"
-                                                HasShadow="True"
-                                                CornerRadius="10"
-                                                HeightRequest="150">
-                        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HeightRequest="270">
-
-                            <Image Source="{Binding Image}" Aspect="Fill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
-                            <Label 
-                                HorizontalOptions="End"
-                                
-                                Text="{x:Static fonts:IconFont.Heart}"
-               FontFamily="{StaticResource Fonts}"
-               TextColor="{StaticResource BGcolor}"
-                    FontSize="20"
-                       />
-
-                            <StackLayout Margin="30" VerticalOptions="EndAndExpand">
-                                <Label Text="{Binding Heading}" TextColor="White" FontSize="35" />
-                                <Label Text="{Binding Caption}" TextColor="White" FontSize="15" />
-                            </StackLayout>
-
-                        </Grid>
-                    </yummy:PancakeView>
-
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
+            SelectedItem="{Binding SelectedItem}"
+            SelectionChangedCommand="{Binding NavigateSelectionCommand}"
+            SelectionMode="Single">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout
+                    HorizontalItemSpacing="10"
+                    Orientation="Vertical"
+                    Span="2"
+                    VerticalItemSpacing="10" />
+            </CollectionView.ItemsLayout>
         </CollectionView>
+        <!--<ListView
+            Grid.Row="2"
+            Footer=""
+            HasUnevenRows="True"
+            ItemsSource="{Binding Dogs}"
+            SelectionMode="None">
+            <ListView.Behaviors>
+                <prism:EventToCommandBehavior
+                    Command="{Binding NavigateDogCommand}"
+                    EventArgsParameterPath="Item"
+                    EventName="ItemTapped" />
+
+
+            </ListView.Behaviors>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Vertical">
+                            <Image
+                                Margin="0,8"
+                                sharedTransitions:Transition.Group="{Binding Id}"
+                                sharedTransitions:Transition.Name="DogImage"
+                                HeightRequest="300"
+                                Source="{Binding Image}"
+                                WidthRequest="300" />
+                            <Label Text="{Binding Heading}" VerticalOptions="Center" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>-->
 
     </Grid>
 

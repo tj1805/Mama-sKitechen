@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace ProjectOne.Views
 {
@@ -8,5 +9,6 @@ namespace ProjectOne.Views
         {
             InitializeComponent();
         }
+
     }
 }

@@ -1,140 +1,70 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:prism="http://prismlibrary.com"
-             prism:ViewModelLocator.AutowireViewModel="True"
-             x:Class="ProjectOne.Views.AllItanlianFoodPage"
-              xmlns:fonts="clr-namespace:ProjectOne.Models"
-              xmlns:cv="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
-             xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
-             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-             NavigationPage.HasNavigationBar="False"
-             >
-    <Grid>
+<ContentPage
+    x:Class="ProjectOne.Views.AllItanlianFoodPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:cv="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+    xmlns:fonts="clr-namespace:ProjectOne.Models"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+    xmlns:prism="http://prismlibrary.com"
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    ios:Page.UseSafeArea="true"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    NavigationPage.HasNavigationBar="False">
+    <Grid Margin="10">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-      <!--<CollectionView Grid.Row="0"
-                        Grid.RowSpan="1"
-            ItemsSource="{Binding Walkthroughs}"
-                       >
-            <CollectionView.ItemsLayout>
-                <GridItemsLayout Orientation="Horizontal"
-                                Span="4" />
-            </CollectionView.ItemsLayout>
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Grid Padding="10">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="Auto" />
-                        </Grid.ColumnDefinitions>
-                        <Image Grid.RowSpan="2" 
-                               Source="{Binding Image}" 
-                               Aspect="AspectFill"
-                               HeightRequest="60" 
-                               WidthRequest="60" />
-                        <Label Grid.Column="1" 
-                               Text="{Binding Heading}" 
-                               FontAttributes="Bold"
-                               LineBreakMode="TailTruncation" />
-                        <Label Grid.Row="1"
-                               Grid.Column="1" 
-                               Text="{Binding Caption}"
-                               LineBreakMode="TailTruncation"
-                               FontAttributes="Italic" 
-                               VerticalOptions="End" />
-                    </Grid>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>-->
 
-        <!--<CollectionView Grid.Row="1">
-            <CollectionView.ItemsLayout>
-                <GridItemsLayout Orientation="Horizontal"
-                                Span="4" />
-            </CollectionView.ItemsLayout>
-            <CollectionView.ItemsSource>
-                <x:Array Type="{x:Type x:String}">
-                    <x:String>Baboon</x:String>
-                    <x:String>Capuchin Monkey</x:String>
-                    <x:String>Blue Monkey</x:String>
-                    <x:String>Squirrel Monkey</x:String>
-                    <x:String>Golden Lion Tamarin</x:String>
-                    <x:String>Howler Monkey</x:String>
-                    <x:String>Japanese Macaque</x:String>
-                    <x:String>Mandrill</x:String>
-                    <x:String>Proboscis Monkey</x:String>
-                    <x:String>Red-shanked Douc</x:String>
-                    <x:String>Gray-shanked Douc</x:String>
-                    <x:String>Golden Snub-nosed Monkey</x:String>
-                    <x:String>Black Snub-nosed Monkey</x:String>
-                    <x:String>Tonkin Snub-nosed Monkey</x:String>
-                    <x:String>Thomas's Langur</x:String>
-                    <x:String>Purple-faced Langur</x:String>
-                    <x:String>Gelada</x:String>
-                </x:Array>
-            </CollectionView.ItemsSource>
-        </CollectionView>-->
-
-        <Grid Grid.Row="0"  Margin="10"  >
-            <Label  Text="Italian" Style="{StaticResource BoldText}" 
-                        TextColor="{StaticResource BGcolor}"
-                        VerticalOptions="Center" HorizontalOptions="Start"/>
-            <Label Text="{x:Static fonts:IconFont.Cart}" 
-                         FontFamily="{StaticResource Fonts}"
-                       TextColor="{StaticResource BGcolor}"
-                       FontSize="20"
-                      HorizontalOptions="End"
-                       VerticalOptions="Center"/>
+        <Grid Grid.Row="0" ColumnDefinitions="Auto,*,Auto">
+            <Label
+                Grid.Column="0"
+                FontFamily="{StaticResource Fonts}"
+                FontSize="20"
+                HorizontalOptions="Start"
+                Text="{x:Static fonts:IconFont.ArrowLeft}"
+                TextColor="{StaticResource BGcolor}"
+                VerticalOptions="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding GoBackCommand}}" />
+                </Label.GestureRecognizers>
+            </Label>
+            <Label
+                Grid.Column="1"
+                HorizontalOptions="Center"
+                Style="{StaticResource BoldText}"
+                Text="Italian"
+                TextColor="{StaticResource BGcolor}"
+                VerticalOptions="Center" />
+            <Label
+                Grid.Column="2"
+                FontFamily="{StaticResource Fonts}"
+                FontSize="20"
+                HorizontalOptions="End"
+                Text="{x:Static fonts:IconFont.Cart}"
+                TextColor="{StaticResource BGcolor}"
+                VerticalOptions="Center" />
         </Grid>
 
-        <CollectionView Grid.Row="1"
+        <CollectionView
+            Grid.Row="1"
+            ItemSizingStrategy="MeasureAllItems"
+            ItemTemplate="{StaticResource MainCollection}"
             ItemsSource="{Binding Walkthroughs}"
-                       >
+            SelectedItem="{Binding SelectedItem}"
+            SelectionChangedCommand="{Binding NavigateSelectionCommand}"
+            SelectionMode="Single">
             <CollectionView.ItemsLayout>
-                <GridItemsLayout Orientation="Vertical"
-                                Span="2" HorizontalItemSpacing="10"
-                                 VerticalItemSpacing="10"/>
+                <GridItemsLayout
+                    HorizontalItemSpacing="10"
+                    Orientation="Vertical"
+                    Span="2"
+                    VerticalItemSpacing="10" />
             </CollectionView.ItemsLayout>
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                  
-                        <yummy:PancakeView
-                                                Margin="5,5,5,5"
-                                                BackgroundColor="White"
-                                                HasShadow="True"
-                                                CornerRadius="10"
-                                                HeightRequest="150">
-                            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HeightRequest="270">
-                           
-                                <Image Source="{Binding Image}" Aspect="Fill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
-                            <Label 
-                                HorizontalOptions="End"
-                                
-                                Text="{x:Static fonts:IconFont.Heart}"
-               FontFamily="{StaticResource Fonts}"
-               TextColor="{StaticResource BGcolor}"
-                    FontSize="20"
-                       />
-
-                            <StackLayout Margin="30" VerticalOptions="EndAndExpand">
-                                    <Label Text="{Binding Heading}" TextColor="White" FontSize="35" />
-                                    <Label Text="{Binding Caption}" TextColor="White" FontSize="15" />
-                                </StackLayout>
-                           
-                        </Grid>
-                        </yummy:PancakeView>
-                   
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
         </CollectionView>
-        
+
     </Grid>
-  
+
 </ContentPage>

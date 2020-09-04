@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary
+    x:Class="ProjectOne.styles.CustomTemplate"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:ffsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+    xmlns:fonts="clr-namespace:ProjectOne.Models"
+    xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sharedTransitions="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions"
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    mc:Ignorable="d">
+
+    <DataTemplate x:Key="HomePageCarousel">
+        <Grid HorizontalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Image
+                Grid.RowSpan="2"
+                Aspect="Fill"
+                HeightRequest="250"
+                HorizontalOptions="Fill"
+                Source="{Binding Image}"
+                VerticalOptions="Fill" />
+
+            <!--<StackLayout
+                Grid.Row="1"
+                Margin="20,50"
+                HeightRequest="60"
+                HorizontalOptions="Center"
+                Orientation="Vertical"
+                Spacing="5"
+                VerticalOptions="End">
+                <Label
+                    Style="{StaticResource SemiBoldText}"
+                    Text="{Binding Heading}"
+                    TextColor="{StaticResource BGcolor}" />
+
+                <Label
+                    x:Name="CaptionTxt"
+                    Style="{StaticResource SemiBoldText}"
+                    Text="{Binding Caption}"
+                    TextColor="{StaticResource BGcolor}" />
+            </StackLayout>-->
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="HomeCollection">
+        <StackLayout
+            Padding="0,0,10,0"
+            Spacing="10"
+            VerticalOptions="Start">
+            <Frame
+                Padding="0"
+                CornerRadius="10"
+                HasShadow="True"
+                HeightRequest="150"
+                HorizontalOptions="Start"
+                VerticalOptions="Start"
+                WidthRequest="150">
+                <Image
+                    Aspect="Fill"
+                    HorizontalOptions="FillAndExpand"
+                    Source="{Binding Image}"
+                    VerticalOptions="FillAndExpand" />
+            </Frame>
+            <StackLayout Orientation="Horizontal">
+                <StackLayout>
+                    <Label
+                        FontSize="15"
+                        Style="{StaticResource SemiBoldText}"
+                        Text="{Binding Heading}"
+                        TextColor="{StaticResource BGcolor}" />
+                    <Label
+                        Margin="0,-7,0,0"
+                        FontSize="12"
+                        Style="{StaticResource SemiBoldText}"
+                        Text="{Binding Caption}"
+                        TextColor="{StaticResource BGcolor}" />
+                </StackLayout>
+                <Label
+                    FontSize="12"
+                    Style="{StaticResource SemiBoldText}"
+                    Text="{Binding ItemPrice, Converter={StaticResource CurrencyConverter}}"
+                    TextColor="{StaticResource BGcolor}"
+                    TranslationX="30"
+                    VerticalOptions="Center" />
+            </StackLayout>
+            <!--  Text="{Binding ItemPrice, StringFormat=' ₦{0:N}'}"  -->
+        </StackLayout>
+    </DataTemplate>
+
+    <DataTemplate x:Key="FavoriteCollection">
+        <yummy:PancakeView
+            Margin="10"
+            CornerRadius="10"
+            HasShadow="True"
+            HeightRequest="250">
+            <Grid RowDefinitions="220,30">
+                <yummy:PancakeView
+                    Grid.Row="0"
+                    Margin="5"
+                    BorderColor="White"
+                    CornerRadius="10"
+                    HasShadow="True"
+                    HeightRequest="220">
+                    <!--  tried using svg image and it worked wow  -->
+                    <!--<ffsvg:SvgCachedImage Source="svg.svg" />-->
+                    <Image
+                        Aspect="Fill"
+                        HorizontalOptions="Fill"
+                        Source="{Binding Image}"
+                        VerticalOptions="Fill" />
+
+                </yummy:PancakeView>
+                <Grid
+                    Grid.Row="1"
+                    Padding="10,0,10,0"
+                    HorizontalOptions="FillAndExpand">
+                    <Label
+                        HorizontalOptions="Start"
+                        Style="{StaticResource SemiBoldText}"
+                        Text="{Binding Heading}"
+                        TextColor="{StaticResource BGcolor}" />
+
+                    <Label
+                        x:Name="CaptionTxt"
+                        HorizontalOptions="End"
+                        Style="{StaticResource SemiBoldText}"
+                        Text="{Binding ItemPrice, Converter={StaticResource CurrencyConverter}}"
+                        TextColor="{StaticResource BGcolor}" />
+
+                </Grid>
+
+            </Grid>
+        </yummy:PancakeView>
+
+    </DataTemplate>
+
+    <DataTemplate x:Key="MainCollection">
+        <Grid
+            HeightRequest="300"
+            HorizontalOptions="FillAndExpand"
+            RowDefinitions="270,30"
+            VerticalOptions="FillAndExpand">
+            <yummy:PancakeView CornerRadius="10">
+                <Image
+                    Grid.Row="0"
+                    sharedTransitions:Transition.Group="{Binding Id}"
+                    sharedTransitions:Transition.Name="productPhoto"
+                    Aspect="Fill"
+                    HorizontalOptions="FillAndExpand"
+                    Source="{Binding Image}"
+                    VerticalOptions="FillAndExpand" />
+            </yummy:PancakeView>
+
+            <Label
+                Grid.Row="0"
+                FontFamily="{StaticResource Fonts}"
+                FontSize="20"
+                HorizontalOptions="End"
+                Text="{x:Static fonts:IconFont.Heart}"
+                TextColor="White" />
+
+            <Grid Grid.Row="1" Margin="10,0,10,0">
+                <Label
+                    FontSize="15"
+                    HorizontalOptions="Start"
+                    Style="{StaticResource SemiBoldTextSubtitle}"
+                    Text="{Binding Heading}"
+                    TextColor="{StaticResource BGcolor}" />
+                <Label
+                    FontSize="15"
+                    HorizontalOptions="End"
+                    Style="{StaticResource SemiBoldTextSubtitle}"
+                    Text="{Binding ItemPrice, Converter={StaticResource CurrencyConverter}}"
+                    TextColor="{StaticResource BGcolor}" />
+            </Grid>
+        </Grid>
+    </DataTemplate>
+
+
+</ResourceDictionary>

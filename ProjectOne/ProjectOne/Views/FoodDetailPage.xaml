@@ -1,20 +1,123 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:prism="http://prismlibrary.com"
-             prism:ViewModelLocator.AutowireViewModel="True"
-             x:Class="ProjectOne.Views.FoodDetailPage">
+<ContentPage
+    x:Class="ProjectOne.Views.FoodDetailPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:fonts="clr-namespace:ProjectOne.Models"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:prism="http://prismlibrary.com"
+    xmlns:sharedTransitions="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions"
+    xmlns:skiarate="clr-namespace:SkiaRate;assembly=SkiaRate.Forms"
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    ios:Page.UseSafeArea="true"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    NavigationPage.HasNavigationBar="False">
 
-    <Grid >
-        <Image HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
-               Source="{Binding Image}"/>
+    <Grid Margin="5,0,5,0" RowDefinitions="50,*,Auto,*,Auto">
+        <Image
+            Grid.Row="0"
+            Grid.RowSpan="2"
+            sharedTransitions:Transition.Name="productPhoto"
+            Aspect="Fill"
+            HorizontalOptions="FillAndExpand"
+            Source="{Binding Image}"
+            VerticalOptions="FillAndExpand" />
+        <Grid Grid.Row="0">
+            <Label
+                FontFamily="{StaticResource Fonts}"
+                FontSize="20"
+                HorizontalOptions="Start"
+                Text="{x:Static fonts:IconFont.ArrowLeft}"
+                TextColor="White"
+                VerticalOptions="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding GoBackCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
+            <Label
+                FontFamily="{StaticResource Fonts}"
+                FontSize="20"
+                HorizontalOptions="End"
+                Text="{x:Static fonts:IconFont.Cart}"
+                TextColor="White"
+                VerticalOptions="Center" />
 
-        <StackLayout HorizontalOptions="Center"
-                     VerticalOptions="Center">
-            <Label Text="{Binding Heading}" FontSize="Large"/>
-            <Label Text="{Binding Caption}" FontSize="Large"/>
+        </Grid>
+        <Grid
+            Grid.Row="2"
+            ColumnDefinitions="2*,*"
+            RowDefinitions="50, 1">
+            <Label
+                HorizontalOptions="Start"
+                Style="{StaticResource SemiBoldText}"
+                Text="{Binding Heading}"
+                TextColor="{StaticResource BGcolor}"
+                VerticalOptions="Start" />
+            <!--<Label
+                Grid.Column="1"
+                Style="{StaticResource SemiBoldText}"
+                Text="Rating"
+                TextColor="{StaticResource BGcolor}"
+                VerticalOptions="Start" />-->
+            <skiarate:RatingView
+                Grid.Column="1"
+                ColorOn="{StaticResource BGcolor}"
+                Count="5"
+                HeightRequest="5"
+                IsEnabled="False"
+                OutlineOffColor="{StaticResource BGcolor}"
+                Value="3" />
+            <BoxView
+                Grid.ColumnSpan="2"
+                Margin="0,10,0,0"
+                BackgroundColor="{StaticResource BGcolor}"
+                HeightRequest="1"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="Center" />
 
+        </Grid>
+
+        <StackLayout
+            Grid.Row="3"
+            Margin="0,-20,0,0"
+            VerticalOptions="Start">
+            <Label
+                HorizontalOptions="Start"
+                Style="{StaticResource SemiBoldText}"
+                Text="Description"
+                TextColor="{StaticResource BGcolor}"
+                VerticalOptions="Start" />
+
+
+            <ScrollView VerticalScrollBarVisibility="Always">
+                <Label
+                    x:Name="CaptionTxt"
+                    FontSize="Small"
+                    HorizontalOptions="End"
+                    Style="{StaticResource SemiBoldText}"
+                    Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborumLorem ipsum dolor sit amet, consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+                    TextColor="{StaticResource BGcolor}" />
+            </ScrollView>
         </StackLayout>
+        <yummy:PancakeView
+            Grid.Row="4"
+            BorderColor="{StaticResource Greencolor}"
+            BorderThickness="5"
+            CornerRadius="20"
+            HeightRequest="50"
+            WidthRequest="70">
+            <!--<yummy:PancakeView.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding ChinesseSeeAllCommand}" />
+            </yummy:PancakeView.GestureRecognizers>-->
+            <Label
+                x:Name="ChinesseSeeAll"
+                Margin="0,0,10,0"
+                HorizontalOptions="Center"
+                Style="{StaticResource SemiBoldTextSubtitle}"
+                Text="Add to Basket"
+                TextColor="{StaticResource BGcolor}"
+                VerticalOptions="Center" />
+        </yummy:PancakeView>
     </Grid>
-    
+
 </ContentPage>

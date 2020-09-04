@@ -2,9 +2,9 @@
 
 namespace ProjectOne.Views
 {
-    public partial class ViewB : ContentPage
+    public partial class CallPage : ContentPage
     {
-        public ViewB()
+        public CallPage()
         {
             InitializeComponent();
         }

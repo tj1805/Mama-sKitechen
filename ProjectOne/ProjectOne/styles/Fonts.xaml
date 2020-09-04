@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary
+    x:Class="ProjectOne.styles.Fonts"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mtrltypo="clr-namespace:XF.Material.Forms.Resources.Typography;assembly=XF.Material"
+    mc:Ignorable="d">
+    <!--  Source Serif Pro  -->
+
+    <OnPlatform x:Key="RegularFont" x:TypeArguments="x:String">
+        <On Platform="Android" Value="SourceSerifPro-Regular.ttf#Source Serif Pro" />
+        <On Platform="iOS" Value="SourceSerifPro-Regular" />
+    </OnPlatform>
+
+
+    <OnPlatform x:Key="SemiBoldFont" x:TypeArguments="x:String">
+        <On Platform="Android" Value="SourceSerifPro-SemiBold.ttf#Source Serif Pro" />
+        <On Platform="iOS" Value="SourceSerifPro-SemiBold" />
+    </OnPlatform>
+
+    <OnPlatform x:Key="BoldFont" x:TypeArguments="x:String">
+        <On Platform="Android" Value="SourceSerifPro-Bold.ttf#Source Serif Pro" />
+        <On Platform="iOS" Value="SourceSerifPro-Bold" />
+    </OnPlatform>
+
+    <!--  IconFonts  -->
+    <OnPlatform x:Key="Fonts" x:TypeArguments="x:String">
+        <On Platform="Android" Value="materialdesignicons-webfont.ttf#Material Design Icons" />
+        <On Platform="iOS" Value="Material Design Icons" />
+    </OnPlatform>
+
+</ResourceDictionary>

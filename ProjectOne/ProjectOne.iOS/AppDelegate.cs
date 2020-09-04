@@ -1,4 +1,5 @@
 ﻿using CarouselView.FormsPlugin.iOS;
+using FFImageLoading.Forms.Platform;
 using Foundation;
 using Prism;
 using Prism.Ioc;
@@ -24,6 +25,7 @@ namespace ProjectOne.iOS
         {
             global::Xamarin.Forms.Forms.Init();
             CarouselViewRenderer.Init();
+            CachedImageRenderer.Init();
             XF.Material.iOS.Material.Init();
             LoadApplication(new App(new iOSInitializer()));
 

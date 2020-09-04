@@ -23,6 +23,9 @@ namespace ProjectOne.ViewModels
         private DelegateCommand _homeCommand;
         public DelegateCommand HomeCommand => _homeCommand ?? (_homeCommand = new DelegateCommand(HomeClicked));
 
+        private DelegateCommand _delegateSelectionCommand;
+        public DelegateCommand NavigateSelectionCommand => _delegateSelectionCommand ?? (_delegateSelectionCommand = new DelegateCommand(ExecuteSelectionCommand));
+
 
         public FavoritePageViewModel(INavigationService navigationService) :
             base(navigationService)
@@ -41,6 +44,29 @@ namespace ProjectOne.ViewModels
             await _navigationService.NavigateAsync("HomePage");
         }
 
+        private Walkthrough selectedItem;
+        public Walkthrough SelectedItem
+        {
+            get
+            {
+                return selectedItem;
+            }
+            set
+            {
+                SetProperty(ref selectedItem, value);
+            }
+        }
+        private async void ExecuteSelectionCommand()
+        {
+            if (SelectedItem != null)
+            {
+                var parameters = new NavigationParameters();
+                parameters.Add("nav", SelectedItem);
+                await NavigationService.NavigateAsync("FoodDetailPage", parameters);
+                SelectedItem = null;
+            }
+        }
+
 
         private List<Walkthrough> GetWalkthroughs()
         {
@@ -50,127 +76,80 @@ namespace ProjectOne.ViewModels
                 {
                     Heading = "Rice",
                     Caption = "Delious",
-                    Image = "foodone"
+                    Image = "foodone",
+                    ItemPrice =2000
                 },
                  new Walkthrough
                 {
                     Heading = "Beams",
                     Caption = "sweet",
-                    Image = "foodtwo"
+                    Image = "foodtwo",
+                     ItemPrice =2000
                 },
 
                   new Walkthrough
                 {
                     Heading = "Yam",
                     Caption = "sweet",
-                    Image = "foodfour"
+                    Image = "foodfour",
+                     ItemPrice =2000
                 },
                   new Walkthrough
                 {
                     Heading = "Yam",
                     Caption = "sweet",
-                    Image = "foodfive"
+                    Image = "foodfive",
+                     ItemPrice =2000
                 },
                      new Walkthrough
                 {
                     Heading = "Yam",
                     Caption = "sweet",
-                    Image = "foodsix"
+                    Image = "foodsix",
+                     ItemPrice =2000
                 },
 
                      new Walkthrough
                 {
                     Heading = "Rice",
                     Caption = "Delious",
-                    Image = "foodone"
+                    Image = "foodone",
+                     ItemPrice =2000
                 },
                  new Walkthrough
                 {
                     Heading = "Beams",
                     Caption = "sweet",
-                    Image = "foodtwo"
+                    Image = "foodtwo",
+                     ItemPrice =2000
                 },
 
                   new Walkthrough
                 {
                     Heading = "Yam",
                     Caption = "sweet",
-                    Image = "foodfour"
+                    Image = "foodfour",
+                     ItemPrice =2000
                 },
                   new Walkthrough
                 {
                     Heading = "Yam",
                     Caption = "sweet",
-                    Image = "foodfive"
+                    Image = "foodfive",
+                     ItemPrice =2000
                 },
                      new Walkthrough
                 {
                     Heading = "Yam",
                     Caption = "sweet",
-                    Image = "foodsix"
+                    Image = "foodsix",
+                     ItemPrice =2000
                 }
 
             };
             App.countNumber = walkThroughList.Count;
             return walkThroughList;
         }
-
-        //private List<Walkthrough> GetWalkthroughs()
-        //{
-        //    var walkThroughList = new List<Walkthrough>()
-        //    {
-        //         new Walkthrough
-        //        {
-        //            Heading = "Mountain",
-        //            Caption = "Explore the world from your point of view. Visit mountain and enjoy the freshness of life",
-        //            Image = "mountains.png"
-        //        },
-        //         new Walkthrough
-        //        {
-        //            Heading = "Cities",
-        //            Caption = "Explore the blue and sights of high rise buildings round the world",
-        //            Image = "Cities.png"
-        //        },
-        //         new Walkthrough
-        //        {
-        //            Heading = "Ancient",
-        //            Caption = "Explore the world from your point of view. Visit mountain and enjoy the freshness of life",
-        //            Image = "Ancient.png"
-        //        }
-
-        //    };
-        //    return walkThroughList;
-
-
-        //}
-
-        //private List<Walkthrough> GetWalkthroughs()
-        //{
-        //    var list = new List<Walkthrough>();
-        //    list.Add(new Walkthrough
-        //    {
-        //        Heading = "Ancient",
-        //        Caption = "Explore the world from your point of view. Visit mountain and enjoy the freshness of life",
-        //        Image = "mountains.png"
-        //    });
-        //     list.Add(new Walkthrough
-        //    {
-        //        Heading = "Ancient",
-        //        Caption = "Explore the world from your point of view. Visit mountain and enjoy the freshness of life",
-        //        Image = "mountains.png"
-        //    });
-        //     list.Add(new Walkthrough
-        //    {
-        //        Heading = "Ancient",
-        //        Caption = "Explore the world from your point of view. Visit mountain and enjoy the freshness of life",
-        //        Image = "mountains.png"
-        //    });
-
-
-
-
-        //    return list;
-        //}
 
     }
 }

@@ -1,126 +1,105 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:prism="http://prismlibrary.com"
-             prism:ViewModelLocator.AutowireViewModel="True"
-             x:Class="ProjectOne.Views.HomePage"
-             xmlns:fonts="clr-namespace:ProjectOne.Models"
-              xmlns:cv="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
-             xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
-             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-             NavigationPage.HasNavigationBar="False"
-             >
-    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+<ContentPage
+    x:Class="ProjectOne.Views.HomePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:cv="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+    xmlns:fonts="clr-namespace:ProjectOne.Models"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:prism="http://prismlibrary.com"
+    xmlns:sharedTransitions="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions"
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    ios:Page.UseSafeArea="true"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    NavigationPage.HasNavigationBar="False">
 
-        <Grid.RowDefinitions> 
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="50"/>
+    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="50" />
         </Grid.RowDefinitions>
-        <cv:CarouselViewControl x:Name="cvBanners"
-                                Grid.Row="0"
-                                ShowIndicators="True" 
-                                IndicatorsShape="Circle" 
-                                IndicatorsTintColor="LightGray"
-                                CurrentPageIndicatorTintColor="#FF0088"
-                                Orientation="Horizontal" InterPageSpacing="0"
-                                ItemsSource="{Binding Walkthroughs}" 
-                                VerticalOptions="FillAndExpand"
-                                HorizontalOptions="StartAndExpand"
-                                 HeightRequest="200"
-                                AnimateTransition="True">
-            <cv:CarouselViewControl.ItemTemplate>
-                <DataTemplate>
-                    <Grid HorizontalOptions="FillAndExpand">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
-                        <Image Source="{Binding Image}" Aspect="Fill" VerticalOptions="Fill" HeightRequest="200" Grid.RowSpan="2" HorizontalOptions="Fill"/>
-                        
-                         <StackLayout  Grid.Row="1"
-                                       Orientation="Vertical"
-                                       Spacing="5"
-                                       HorizontalOptions="Center"
-                                       VerticalOptions="End" 
-                                       HeightRequest="60"
-                                       Margin="20,50">
-                             <Label Text="{Binding Heading}" 
-                                    Style="{StaticResource SemiBoldText}"
-                                    TextColor="{StaticResource BGcolor}"
-                                   />
-                            
-                            <Label x:Name="CaptionTxt" 
-                                   TextColor="{StaticResource BGcolor}"
-                                   Text="{Binding Caption}" 
-                                   Style="{StaticResource SemiBoldText}"
-                                  />
-                        </StackLayout>
-                    </Grid>
-                </DataTemplate>
-            </cv:CarouselViewControl.ItemTemplate>
-        </cv:CarouselViewControl>
-
-        <ScrollView Grid.Row="1" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" >  
+        <cv:CarouselViewControl
+            x:Name="cvBanners"
+            Grid.Row="0"
+            Margin="5,0,5,0"
+            AnimateTransition="True"
+            CurrentPageIndicatorTintColor="#FF0088"
+            HeightRequest="250"
+            HorizontalOptions="StartAndExpand"
+            IndicatorsShape="Circle"
+            IndicatorsTintColor="LightGray"
+            InterPageSpacing="0"
+            ItemTemplate="{StaticResource HomePageCarousel}"
+            ItemsSource="{Binding Walkthroughs}"
+            Orientation="Horizontal"
+            ShowIndicators="True"
+            VerticalOptions="FillAndExpand" />
+        <ScrollView
+            Grid.Row="1"
+            Margin="10,0,10,0"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-               </Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
 
-                <Grid  Grid.Row="0"  Margin="10">
+                <!--  first heading plus collection view  -->
+                <Grid Grid.Row="0">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
                     <Grid Grid.Row="0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0" Text="Italian" Style="{StaticResource SemiBoldText}" 
-                              TextColor="{StaticResource BGcolor}"
-                               HorizontalOptions="Start" VerticalOptions="Center"/>
+                        <Label
+                            x:Name="Itanlianfood"
+                            Grid.Column="0"
+                            HorizontalOptions="Start"
+                            Style="{StaticResource SemiBoldText}"
+                            Text="Italian"
+                            TextColor="{StaticResource BGcolor}"
+                            VerticalOptions="Center" />
 
-                        <yummy:PancakeView Grid.Column="1"
-                            BorderThickness="5"
-                                           WidthRequest="70"
-                                          CornerRadius="20"
+                        <yummy:PancakeView
+                            Grid.Column="1"
                             BorderColor="{StaticResource Greencolor}"
-                            >
+                            BorderThickness="5"
+                            CornerRadius="20"
+                            WidthRequest="70">
                             <yummy:PancakeView.GestureRecognizers>
-                                <TapGestureRecognizer Command="{ Binding ItanlianSeeAllCommand}"/>
+                                <TapGestureRecognizer Command="{Binding ItanlianSeeAllCommand}" />
                             </yummy:PancakeView.GestureRecognizers>
-                            <Label x:Name="ItalianSeeALl"
-                            Text="See all" 
-                               Margin="0,0,10,0"
-                              TextColor="{StaticResource BGcolor}"
-                               Style="{StaticResource SemiBoldTextSubtitle}" HorizontalOptions="End" VerticalOptions="Center"/>
+                            <Label
+                                x:Name="ItalianSeeALl"
+                                Margin="0,0,10,0"
+                                HorizontalOptions="End"
+                                Style="{StaticResource SemiBoldTextSubtitle}"
+                                Text="See all"
+                                TextColor="{StaticResource BGcolor}"
+                                VerticalOptions="Center" />
                         </yummy:PancakeView>
                     </Grid>
-
-                    <ScrollView Grid.Row="1" Orientation="Horizontal" VerticalScrollBarVisibility="Never" HorizontalScrollBarVisibility="Never" >
-                        <StackLayout BindableLayout.ItemsSource="{Binding Walkthroughs}" Orientation="Horizontal" Spacing="20" VerticalOptions="Start">
-                            <BindableLayout.ItemTemplate>
-                                <DataTemplate>
-                                    <StackLayout VerticalOptions="Start" Spacing="5">
-                                        <Frame Padding="0" HasShadow="False"  HorizontalOptions="Start" VerticalOptions="Start" CornerRadius="10" HeightRequest="150" WidthRequest="150">
-                                            <Image Source="{Binding Image}" Aspect="Fill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
-                                        </Frame>
-                                        <Label Text="{Binding Heading}" TextColor="{StaticResource BGcolor}" FontSize="15" Style="{StaticResource SemiBoldText}" />
-                                        <Label Text="{Binding Caption}" Margin="0,-7,0,0" TextColor="{StaticResource BGcolor}" FontSize="12" Style="{StaticResource SemiBoldText}" />
-                                    </StackLayout>
-                                </DataTemplate>
-                            </BindableLayout.ItemTemplate>
-                        </StackLayout>
-                    </ScrollView>
-                    
+                    <CollectionView
+                        Grid.Row="1"
+                        HeightRequest="200"
+                        ItemSizingStrategy="MeasureAllItems"
+                        ItemTemplate="{StaticResource HomeCollection}"
+                        ItemsLayout="HorizontalList"
+                        ItemsSource="{Binding Walkthroughs}" />
                 </Grid>
-                 <Grid  Grid.Row="1" Margin="10">
+
+                <!--  Second  heading plus collection view  -->
+                <Grid Grid.Row="1">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
 
                     <Grid Grid.Row="0">
@@ -128,183 +107,180 @@
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0" Text="African" Style="{StaticResource SemiBoldText}" 
-                              TextColor="{StaticResource BGcolor}"
-                               HorizontalOptions="Start" VerticalOptions="Center"/>
+                        <Label
+                            Grid.Column="0"
+                            sharedTransitions:Transition.Name="africantransition"
+                            HorizontalOptions="Start"
+                            Style="{StaticResource SemiBoldText}"
+                            Text="African"
+                            TextColor="{StaticResource BGcolor}"
+                            VerticalOptions="Center" />
 
-                        <yummy:PancakeView Grid.Column="1"
-                            BorderThickness="5"
-                                           WidthRequest="70"
-                                          CornerRadius="20"
+                        <yummy:PancakeView
+                            Grid.Column="1"
                             BorderColor="{StaticResource Greencolor}"
-                            >
+                            BorderThickness="5"
+                            CornerRadius="20"
+                            WidthRequest="70">
                             <yummy:PancakeView.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding AfricanSeeAllCommand}"/>
+                                <TapGestureRecognizer Command="{Binding AfricanSeeAllCommand}" />
                             </yummy:PancakeView.GestureRecognizers>
-                            <Label 
+                            <Label
                                 x:Name="AfricanSeeAll"
-                                Text="See all" 
-                               Margin="0,0,10,0"
-                              TextColor="{StaticResource BGcolor}"
-                               Style="{StaticResource SemiBoldTextSubtitle}" HorizontalOptions="End" VerticalOptions="Center"/>
+                                Margin="0,0,10,0"
+                                HorizontalOptions="End"
+                                Style="{StaticResource SemiBoldTextSubtitle}"
+                                Text="See all"
+                                TextColor="{StaticResource BGcolor}"
+                                VerticalOptions="Center" />
                         </yummy:PancakeView>
                     </Grid>
 
-                 
 
-                    <ScrollView Grid.Row="1" Orientation="Horizontal" VerticalScrollBarVisibility="Never" HorizontalScrollBarVisibility="Never" >
-                        <StackLayout BindableLayout.ItemsSource="{Binding Walkthroughs}" Orientation="Horizontal" Spacing="20" VerticalOptions="Start">
-                            <BindableLayout.ItemTemplate>
-                                <DataTemplate>
-                                    <StackLayout VerticalOptions="Start" Spacing="5">
-                                        <Frame Padding="0" HasShadow="False"  HorizontalOptions="Start" VerticalOptions="Start" CornerRadius="10" HeightRequest="150" WidthRequest="150">
-                                            <Image Source="{Binding Image}" Aspect="Fill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
-                                        </Frame>
-                                        <Label Text="{Binding Heading}" TextColor="{StaticResource BGcolor}" FontSize="15" Style="{StaticResource SemiBoldText}" />
-                                        <Label Text="{Binding Caption}" Margin="0,-7,0,0" TextColor="{StaticResource BGcolor}" FontSize="12" Style="{StaticResource SemiBoldText}" />
-                                    </StackLayout>
-                                </DataTemplate>
-                            </BindableLayout.ItemTemplate>
-                        </StackLayout>
-                    </ScrollView>
-                    
+
+                    <CollectionView
+                        Grid.Row="1"
+                        HeightRequest="200"
+                        ItemTemplate="{StaticResource HomeCollection}"
+                        ItemsLayout="HorizontalList"
+                        ItemsSource="{Binding Walkthroughs}" />
+
                 </Grid>
-                 <Grid  Grid.Row="2" Margin="10">
+
+                <!--  third heading plus collection view  -->
+                <Grid Grid.Row="2">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-                  
+
                     <Grid Grid.Row="0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0" Text="chinese" 
-                               Style="{StaticResource SemiBoldText}" 
-                              TextColor="{StaticResource BGcolor}"
-                               HorizontalOptions="Start" VerticalOptions="Center"/>
+                        <Label
+                            Grid.Column="0"
+                            HorizontalOptions="Start"
+                            Style="{StaticResource SemiBoldText}"
+                            Text="chinese"
+                            TextColor="{StaticResource BGcolor}"
+                            VerticalOptions="Center" />
 
-                        <yummy:PancakeView Grid.Column="1"
-                            BorderThickness="5"
-                                           WidthRequest="70"
-                                          CornerRadius="20"
+                        <yummy:PancakeView
+                            Grid.Column="1"
                             BorderColor="{StaticResource Greencolor}"
-                            >
+                            BorderThickness="5"
+                            CornerRadius="20"
+                            WidthRequest="70">
                             <yummy:PancakeView.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding ChinesseSeeAllCommand}"/>
+                                <TapGestureRecognizer Command="{Binding ChinesseSeeAllCommand}" />
                             </yummy:PancakeView.GestureRecognizers>
-                            <Label 
+                            <Label
                                 x:Name="ChinesseSeeAll"
-                                Text="See all" 
-                               Margin="0,0,10,0"
-                              TextColor="{StaticResource BGcolor}"
-                               Style="{StaticResource SemiBoldTextSubtitle}" 
-                                   HorizontalOptions="End" VerticalOptions="Center"/>
+                                Margin="0,0,10,0"
+                                HorizontalOptions="End"
+                                Style="{StaticResource SemiBoldTextSubtitle}"
+                                Text="See all"
+                                TextColor="{StaticResource BGcolor}"
+                                VerticalOptions="Center" />
                         </yummy:PancakeView>
                     </Grid>
 
-                    <ScrollView Grid.Row="1" Orientation="Horizontal" VerticalScrollBarVisibility="Never" HorizontalScrollBarVisibility="Never" >
-                        <StackLayout BindableLayout.ItemsSource="{Binding Walkthroughs}" Orientation="Horizontal" Spacing="20" VerticalOptions="Start">
-                            <BindableLayout.ItemTemplate>
-                                <DataTemplate>
-                                    <StackLayout VerticalOptions="Start" Spacing="5">
-                                        <Frame Padding="0" HasShadow="False"  HorizontalOptions="Start" VerticalOptions="Start" CornerRadius="10" HeightRequest="150" WidthRequest="150">
-                                            <Image Source="{Binding Image}" Aspect="Fill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
-                                        </Frame>
-                                        <Label Text="{Binding Heading}" TextColor="{StaticResource BGcolor}" FontSize="15" Style="{StaticResource SemiBoldText}" />
-                                        <Label Text="{Binding Caption}" Margin="0,-7,0,0" TextColor="{StaticResource BGcolor}" FontSize="12" Style="{StaticResource SemiBoldText}" />
-                                    </StackLayout>
-                                </DataTemplate>
-                            </BindableLayout.ItemTemplate>
-                        </StackLayout>
-                    </ScrollView>
-                    
+                    <CollectionView
+                        Grid.Row="1"
+                        HeightRequest="200"
+                        ItemTemplate="{StaticResource HomeCollection}"
+                        ItemsLayout="HorizontalList"
+                        ItemsSource="{Binding Walkthroughs}" />
+
+
                 </Grid>
-                
+
             </Grid>
         </ScrollView>
-        
-        
 
-        <Grid Grid.Row="2" >
+        <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                
-           </Grid.ColumnDefinitions>
-            <BoxView Grid.ColumnSpan="3"
-                     BackgroundColor="{StaticResource BGcolor}"
-                     HorizontalOptions="FillAndExpand"
-                     VerticalOptions="FillAndExpand"
-                     />
-            <yummy:PancakeView   
-                Grid.Column="0"
-               >
-                <StackLayout   VerticalOptions="Center"
-                       HorizontalOptions="Center">
-                    <Label Text="{x:Static fonts:IconFont.Home}"
-               FontFamily="{StaticResource Fonts}"
-                           HorizontalOptions="Center"
-               TextColor="{StaticResource Greencolor}"
-                           FontSize="20"
-                         />
-                   
-                    <Label Text="Home" FontSize="14" HorizontalOptions="Center" 
-                           Style="{StaticResource SemiBoldText}"
-                       TextColor="{StaticResource Greencolor}"/>
-           </StackLayout>
-            </yummy:PancakeView>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
 
-            <yummy:PancakeView   
-                Grid.Column="1" 
-                  Margin="0,-30,0,0" VerticalOptions="Center"
-                 HorizontalOptions="Center"
-                 HeightRequest="100"
-                 WidthRequest="100"
-                 BackgroundColor="{StaticResource BGcolor}"
-                                CornerRadius="100"
-                BorderThickness="10"
-                BorderColor="White"
-                >
-                <yummy:PancakeView.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding FavoriteCommand }"/>
-                </yummy:PancakeView.GestureRecognizers>
-                <StackLayout VerticalOptions="Center"
-                       HorizontalOptions="Center">
-                    <Label Text="{x:Static fonts:IconFont.Heart}"
-               FontFamily="{StaticResource Fonts}"
-               TextColor="Red"
-                    FontSize="20"
-                       HorizontalOptions="Center"/>
-                    <Label Text="Favorite" FontSize="14" HorizontalOptions="Center"
-                        TextColor="{StaticResource Greencolor}"/>
+            </Grid.ColumnDefinitions>
+            <BoxView
+                Grid.ColumnSpan="3"
+                BackgroundColor="{StaticResource BGcolor}"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand" />
+            <yummy:PancakeView Grid.Column="0">
+                <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                    <Label
+                        FontFamily="{StaticResource Fonts}"
+                        FontSize="20"
+                        HorizontalOptions="Center"
+                        Text="{x:Static fonts:IconFont.Home}"
+                        TextColor="{StaticResource Greencolor}" />
+
+                    <Label
+                        FontSize="14"
+                        HorizontalOptions="Center"
+                        Style="{StaticResource SemiBoldText}"
+                        Text="Home"
+                        TextColor="{StaticResource Greencolor}" />
                 </StackLayout>
             </yummy:PancakeView>
 
-           
-            
-           
-             <yummy:PancakeView   
-                Grid.Column="2"
-                >
+            <yummy:PancakeView
+                Grid.Column="1"
+                Margin="0,-30,0,0"
+                BackgroundColor="{StaticResource BGcolor}"
+                BorderColor="White"
+                BorderThickness="10"
+                CornerRadius="100"
+                HeightRequest="100"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                WidthRequest="100">
                 <yummy:PancakeView.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding ProfileCommand }"/>
+                    <TapGestureRecognizer Command="{Binding FavoriteCommand}" />
                 </yummy:PancakeView.GestureRecognizers>
-                <StackLayout VerticalOptions="Center"
-                       HorizontalOptions="Center">
-                    <Label Text="{x:Static fonts:IconFont.Account}"
-               FontFamily="{StaticResource Fonts}"
-                            FontSize="20"
-               TextColor="White"
-                          
-                       HorizontalOptions="Center"/>
-                    <Label Text="Profile" FontSize="14" HorizontalOptions="Center"
-                       TextColor="White"/>
-           </StackLayout>
+                <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                    <Label
+                        FontFamily="{StaticResource Fonts}"
+                        FontSize="20"
+                        HorizontalOptions="Center"
+                        Text="{x:Static fonts:IconFont.Heart}"
+                        TextColor="Red" />
+                    <Label
+                        FontSize="14"
+                        HorizontalOptions="Center"
+                        Text="Favorite"
+                        TextColor="{StaticResource Greencolor}" />
+                </StackLayout>
             </yummy:PancakeView>
-            
-       </Grid>
+
+
+
+
+            <yummy:PancakeView Grid.Column="2">
+                <yummy:PancakeView.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ProfileCommand}" />
+                </yummy:PancakeView.GestureRecognizers>
+                <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                    <Label
+                        FontFamily="{StaticResource Fonts}"
+                        FontSize="20"
+                        HorizontalOptions="Center"
+                        Text="{x:Static fonts:IconFont.Account}"
+                        TextColor="White" />
+                    <Label
+                        FontSize="14"
+                        HorizontalOptions="Center"
+                        Text="Profile"
+                        TextColor="White" />
+                </StackLayout>
+            </yummy:PancakeView>
+
+        </Grid>
     </Grid>
 </ContentPage>

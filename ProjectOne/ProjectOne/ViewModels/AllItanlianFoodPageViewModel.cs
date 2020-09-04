@@ -10,13 +10,45 @@ namespace ProjectOne.ViewModels
 {
     public class AllItanlianFoodPageViewModel : ViewModelBase
     {
-        private readonly INavigationService _navigationService;
+        private DelegateCommand _delegateSelectionCommand;
+        public DelegateCommand NavigateSelectionCommand => _delegateSelectionCommand ?? (_delegateSelectionCommand = new DelegateCommand(ExecuteSelectionCommand));
+
+        private DelegateCommand _goBackCommand;
+        public DelegateCommand GoBackCommand => _goBackCommand ?? (_goBackCommand = new DelegateCommand(GoBack));
+
 
         public List<Walkthrough> Walkthroughs { get => GetWalkthroughs(); }
         public AllItanlianFoodPageViewModel(INavigationService navigationService) :
             base(navigationService)
         {
-            _navigationService = navigationService;
+
+        }
+        private Walkthrough selectedItem;
+        public Walkthrough SelectedItem
+        {
+            get
+            {
+                return selectedItem;
+            }
+            set
+            {
+                SetProperty(ref selectedItem, value);
+            }
+        }
+
+        private async void ExecuteSelectionCommand()
+        {
+            if (SelectedItem != null)
+            {
+                var parameters = new NavigationParameters();
+                parameters.Add("nav", SelectedItem);
+                await NavigationService.NavigateAsync("FoodDetailPage", parameters);
+                SelectedItem = null;
+            }
+        }
+        private async void GoBack()
+        {
+            await NavigationService.GoBackAsync();
         }
 
         private List<Walkthrough> GetWalkthroughs()

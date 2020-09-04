@@ -33,18 +33,18 @@ namespace ProjectOne.ViewModels
             get { return caption; }
             set { SetProperty(ref caption, value); }
         }
+        private DelegateCommand _goBackCommand;
+        public DelegateCommand GoBackCommand => _goBackCommand ?? (_goBackCommand = new DelegateCommand(GoBack));
 
-
-        private readonly INavigationService _navigationService;
         public FoodDetailPageViewModel(INavigationService navigationService) :
             base(navigationService)
         {
-            _navigationService = navigationService;
+            
         }
 
         public override void OnNavigatedTo(INavigationParameters parameters)
         {
-           if (parameters.ContainsKey("nav"))
+            if (parameters.ContainsKey("nav"))
             {
                 walkthroughs = parameters.GetValue<Walkthrough>("nav");
                 Image = walkthroughs.Image;
@@ -52,6 +52,11 @@ namespace ProjectOne.ViewModels
                 Caption = walkthroughs.Caption;
 
             }
+        }   
+
+        private async void GoBack()
+        {
+            await NavigationService.GoBackAsync();
         }
     }
 }

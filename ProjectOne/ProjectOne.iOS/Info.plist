@@ -48,16 +48,32 @@
     </array>
     <key>UILaunchStoryboardName</key>
     <string>LaunchScreen</string>
+    
+    <!--for my fonts-->
     <key>UIAppFonts</key>
     <array>
       <string>SourceSerifPro-Bold.ttf</string>
       <string>SourceSerifPro-Regular.ttf</string>
       <string>SourceSerifPro-SemiBold.ttf</string>
-     <string>Material Design Icons</string>
+     <string>materialdesignicons-webfont.ttf</string>
     </array>
-    
+
     <key>UIViewControllerBasedStatusBarAppearance</key>
     <false/>
     
-  </dict>
+    <!--for media pluging to access camera-->
+    <key>NSCameraUsageDescription</key>
+    <string>This app needs access to the camera to take photos.</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>This app needs access to photos.</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>This app needs access to microphone.</string>
+    <key>NSPhotoLibraryAddUsageDescription</key>
+    <string>This app needs access to the photo gallery.</string>
+
+    <!--to getv my device location-->
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>This App needs to access your location.</string>  
+
+   </dict>
 </plist>

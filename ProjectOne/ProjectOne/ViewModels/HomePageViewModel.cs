@@ -15,6 +15,7 @@ namespace ProjectOne.ViewModels
         private readonly INavigationService _navigationService;
         public List<Walkthrough> Walkthroughs { get => GetWalkthroughs(); }
 
+       
         private DelegateCommand _favoriteCommand;
         public DelegateCommand FavoriteCommand => _favoriteCommand ?? (_favoriteCommand = new DelegateCommand(FavoriteClicked));
         
@@ -30,18 +31,14 @@ namespace ProjectOne.ViewModels
          private DelegateCommand _chinesseSeeAllCommand;
         public DelegateCommand ChinesseSeeAllCommand => _chinesseSeeAllCommand ?? (_chinesseSeeAllCommand = new DelegateCommand(ChinesseSeeAllClicked));
         
-
-
-        //private DelegateCommand _testingCommand;
-        //public DelegateCommand TestingCommand => _testingCommand ?? (_testingCommand = new DelegateCommand(SignIn));
-
-
+       
         public HomePageViewModel(INavigationService navigationService) :
             base(navigationService)
         {
             _navigationService = navigationService;
         
         }
+
 
         private List<Walkthrough> GetWalkthroughs()
         {
@@ -51,41 +48,46 @@ namespace ProjectOne.ViewModels
                 {
                     Heading = "Rice",
                     Caption = "Delious",
-                    Image = "foodone"
+                    Image = "foodone",
+                    ItemPrice =2000
                 },
                  new Walkthrough
                 {
-                    Heading = "Beams",
+                    Heading = "Beans",
                     Caption = "sweet",
-                    Image = "foodtwo"
+                    Image = "foodtwo",
+                      ItemPrice =2000
                 },
                
                   new Walkthrough
                 {
                     Heading = "Yam",
                     Caption = "sweet",
-                    Image = "foodfour"
+                    Image = "foodfour",
+                    ItemPrice = 2000
                 },
                   new Walkthrough
                 {
                     Heading = "Yam",
                     Caption = "sweet",
-                    Image = "foodfive"
+                    Image = "foodfive",
+                    ItemPrice = 2000
                 },
                      new Walkthrough
                 {
                     Heading = "Yam",
                     Caption = "sweet",
-                    Image = "foodsix"
+                    Image = "foodsix",
+                    ItemPrice = 2000
                 }
 
             };
             App.countNumber = walkThroughList.Count;
             return walkThroughList;
            }
-         
+
        
-         async void FavoriteClicked()
+        async void FavoriteClicked()
         {
              await _navigationService.NavigateAsync("FavoritePage");
          
@@ -110,8 +112,6 @@ namespace ProjectOne.ViewModels
              await _navigationService.NavigateAsync("AllChinesseFoodPage");
          
         }
-        
-
 
 
     }

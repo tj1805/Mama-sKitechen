@@ -27,7 +27,7 @@
     <item name="windowActionBar">false</item>
     <!-- Set theme colors from http://www.google.com/design/spec/style/color.html#color-color-palette -->
     <!-- colorPrimary is used for the default action bar background -->
-    <item name="colorPrimary">#2196F3</item>
+    <item name="colorPrimary">#ffffff</item>
     <!-- colorPrimaryDark is used for the status bar -->
     <item name="colorPrimaryDark">#010088</item>
     <!-- colorAccent is used as the default value for colorControlActivated
@@ -36,10 +36,14 @@
     <!-- You can also set colorControlNormal, colorControlActivated
          colorControlHighlight and colorSwitchThumbNormal. -->
     <item name="windowActionModeOverlay">true</item>
-
+    <!--Button text always showing in uppercase (OFF) (FALSE)-->
+    <item name="android:textAllCaps">false</item>
+    <!--Collectionview /Listview  selected color--> 
+    <item name="android:colorActivatedHighlight">#007ACC</item> 
+    
     <item name="android:datePickerDialogTheme">@style/AppCompatDialogStyle</item>
   </style>
-
+   
   <style name="AppCompatDialogStyle" parent="Theme.AppCompat.Light.Dialog">
     <item name="colorAccent">#FF4081</item>
   </style>

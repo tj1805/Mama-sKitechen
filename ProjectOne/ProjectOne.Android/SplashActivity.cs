@@ -83,7 +83,7 @@ namespace ProjectOne.Droid
     //                            03
 
    
-    [Activity(Label = "ProjectOnE", Icon = "@drawable/logo02"
+    [Activity(Label = "Mia's kitchen", Icon = "@drawable/logoone"
         , Theme = "@style/MyTheme.Splash", MainLauncher = true, NoHistory = true)]
     public class SplashActivity : Activity
     {
