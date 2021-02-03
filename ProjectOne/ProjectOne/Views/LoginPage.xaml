@@ -15,34 +15,25 @@
     <Grid>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="50" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <yummy:PancakeView
-            Grid.Row="0"
-            Grid.RowSpan="2"
-            BackgroundGradientAngle="150"
-            BackgroundGradientEndColor="White"
-            BackgroundGradientStartColor="#010088"
-            CornerRadius="0,0,60,60"
-            Elevation="0"
-            HasShadow="True"
-            IsClippedToBounds="true">
-            <Label
-                x:Name="Logintext"
-                Margin="0,70,0,0"
-                FontSize="50"
-                HorizontalOptions="Center"
-                Style="{StaticResource BoldText}"
-                Text="LOGIN" />
 
-        </yummy:PancakeView>
+        <Label
+            x:Name="Logintext"
+            Grid.Row="0"
+            FontSize="50"
+            HorizontalOptions="Center"
+            Style="{StaticResource BoldText}"
+            Text="LOGIN"
+            TextColor="#010088" />
+
+
 
         <yummy:PancakeView
             Grid.Row="1"
             Grid.RowSpan="2"
-            Margin="30,-40,30,30"
+            Margin="30,20,30,30"
             BackgroundColor="White"
             CornerRadius="60,60,60,100"
             Elevation="20"
@@ -70,7 +61,8 @@
                         <Label
                             x:Name="EmailText"
                             Style="{StaticResource SemiBoldTextSubtitle}"
-                            Text="Email" />
+                            Text="Email"
+                            TextColor="#047123" />
                         <Entry
                             x:Name="EmailEntrty"
                             IsEnabled="{Binding IsBusy}"
@@ -89,7 +81,8 @@
                         <Label
                             x:Name="PasswordText"
                             Style="{StaticResource SemiBoldTextSubtitle}"
-                            Text="Password" />
+                            Text="Password"
+                            TextColor="#047123" />
                         <Entry
                             x:Name="PasswordEntry"
                             IsEnabled="{Binding IsBusy}"
@@ -108,10 +101,7 @@
                         Grid.Row="2"
                         Margin="0,10,0,0"
                         sharedTransitions:Transition.Name="signintransition"
-                        BackgroundGradientAngle="45"
-                        BackgroundGradientEndColor="LightBlue"
-                        BackgroundGradientStartColor="#010088"
-                        BorderColor="#00FF01"
+                        BorderColor="#010088"
                         BorderThickness="4"
                         CornerRadius="10,10,10,10"
                         HeightRequest="50"
@@ -131,7 +121,7 @@
                             HorizontalOptions="Center"
                             IsEnabled="{Binding IsBusy}"
                             Text="SignIn"
-                            TextColor="#00FF01"
+                            TextColor="#010088"
                             VerticalOptions="Center" />
                         <yummy:PancakeView.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding SignInCommand}" />
@@ -159,7 +149,7 @@
                         </Grid.ColumnDefinitions>
                         <BoxView
                             Grid.Column="0"
-                            BackgroundColor="#00FF01"
+                            BackgroundColor="#047123"
                             HeightRequest="1"
                             VerticalOptions="Center" />
                         <Label
@@ -169,7 +159,7 @@
                             VerticalOptions="Center" />
                         <BoxView
                             Grid.Column="2"
-                            BackgroundColor="#00FF01"
+                            BackgroundColor="#047123"
                             HeightRequest="1"
                             VerticalOptions="Center" />
                     </Grid>

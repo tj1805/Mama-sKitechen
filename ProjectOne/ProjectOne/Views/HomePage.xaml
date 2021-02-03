@@ -24,7 +24,7 @@
             Grid.Row="0"
             Margin="5,0,5,0"
             AnimateTransition="True"
-            CurrentPageIndicatorTintColor="#FF0088"
+            CurrentPageIndicatorTintColor="#010088"
             HeightRequest="250"
             HorizontalOptions="StartAndExpand"
             IndicatorsShape="Circle"
@@ -69,8 +69,8 @@
 
                         <yummy:PancakeView
                             Grid.Column="1"
-                            BorderColor="{StaticResource Greencolor}"
-                            BorderThickness="5"
+                            BorderColor="{StaticResource BGcolor}"
+                            BorderThickness="3"
                             CornerRadius="20"
                             WidthRequest="70">
                             <yummy:PancakeView.GestureRecognizers>
@@ -92,7 +92,7 @@
                         ItemSizingStrategy="MeasureAllItems"
                         ItemTemplate="{StaticResource HomeCollection}"
                         ItemsLayout="HorizontalList"
-                        ItemsSource="{Binding Walkthroughs}" />
+                        ItemsSource="{Binding ItalianList}" />
                 </Grid>
 
                 <!--  Second  heading plus collection view  -->
@@ -118,8 +118,8 @@
 
                         <yummy:PancakeView
                             Grid.Column="1"
-                            BorderColor="{StaticResource Greencolor}"
-                            BorderThickness="5"
+                            BorderColor="{StaticResource BGcolor}"
+                            BorderThickness="3"
                             CornerRadius="20"
                             WidthRequest="70">
                             <yummy:PancakeView.GestureRecognizers>
@@ -136,14 +136,12 @@
                         </yummy:PancakeView>
                     </Grid>
 
-
-
                     <CollectionView
                         Grid.Row="1"
                         HeightRequest="200"
                         ItemTemplate="{StaticResource HomeCollection}"
                         ItemsLayout="HorizontalList"
-                        ItemsSource="{Binding Walkthroughs}" />
+                        ItemsSource="{Binding AfricanList}" />
 
                 </Grid>
 
@@ -169,8 +167,8 @@
 
                         <yummy:PancakeView
                             Grid.Column="1"
-                            BorderColor="{StaticResource Greencolor}"
-                            BorderThickness="5"
+                            BorderColor="{StaticResource BGcolor}"
+                            BorderThickness="3"
                             CornerRadius="20"
                             WidthRequest="70">
                             <yummy:PancakeView.GestureRecognizers>

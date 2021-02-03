@@ -76,78 +76,91 @@ namespace ProjectOne.ViewModels
                 {
                     Heading = "Rice",
                     Caption = "Delious",
-                    Image = "foodone",
+                    Image = "mealone",
                     ItemPrice =2000
                 },
                  new Walkthrough
                 {
-                    Heading = "Beams",
+                    Heading = "Lorem",
                     Caption = "sweet",
-                    Image = "foodtwo",
+                    Image = "mealtwo",
                      ItemPrice =2000
                 },
 
                   new Walkthrough
                 {
-                    Heading = "Yam",
+                    Heading = "Lorem",
                     Caption = "sweet",
-                    Image = "foodfour",
+                    Image = "mealthree",
                      ItemPrice =2000
                 },
                   new Walkthrough
                 {
-                    Heading = "Yam",
+                    Heading = "Lorem",
                     Caption = "sweet",
-                    Image = "foodfive",
+                    Image = "mealfour",
                      ItemPrice =2000
                 },
                      new Walkthrough
                 {
-                    Heading = "Yam",
+                    Heading = "Lorem",
                     Caption = "sweet",
-                    Image = "foodsix",
+                    Image = "mealfive",
                      ItemPrice =2000
                 },
 
                      new Walkthrough
                 {
-                    Heading = "Rice",
+                    Heading = "Lorem",
                     Caption = "Delious",
-                    Image = "foodone",
+                    Image = "mealsix",
                      ItemPrice =2000
                 },
                  new Walkthrough
                 {
-                    Heading = "Beams",
+                    Heading = "Lorem",
                     Caption = "sweet",
-                    Image = "foodtwo",
+                    Image = "mealseven",
                      ItemPrice =2000
                 },
 
                   new Walkthrough
                 {
-                    Heading = "Yam",
+                    Heading = "Lorem",
                     Caption = "sweet",
-                    Image = "foodfour",
+                    Image = "mealeight",
                      ItemPrice =2000
                 },
                   new Walkthrough
                 {
-                    Heading = "Yam",
+                    Heading = "Lorem",
                     Caption = "sweet",
-                    Image = "foodfive",
+                    Image = "mealnine",
                      ItemPrice =2000
                 },
                      new Walkthrough
                 {
-                    Heading = "Yam",
+                    Heading = "Lorem",
                     Caption = "sweet",
-                    Image = "foodsix",
+                    Image = "mealten",
+                     ItemPrice =2000
+                },
+                new Walkthrough
+                {
+                    Heading = "Lorem",
+                    Caption = "sweet",
+                    Image = "mealeleven",
+                     ItemPrice =2000
+                },
+                new Walkthrough
+                {
+                    Heading = "Lorem",
+                    Caption = "sweet",
+                    Image = "mealforteen",
                      ItemPrice =2000
                 }
 
             };
-            App.countNumber = walkThroughList.Count;
             return walkThroughList;
         }
 

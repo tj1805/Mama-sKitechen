@@ -96,10 +96,6 @@
     <ITunesArtwork Include="iTunesArtwork@1x.png" />
     <ITunesArtwork Include="iTunesArtwork@2x.png" />
     <ITunesArtwork Include="iTunesArtwork@3x.png" />
-    <BundleResource Include="Resources\SourceSerifPro-Regular.ttf" />
-    <BundleResource Include="Resources\SourceSerifPro-SemiBold.ttf" />
-    <BundleResource Include="Resources\SourceSerifPro-Bold.ttf" />
-    <BundleResource Include="Resources\materialdesignicons-webfont.ttf" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\Contents.json">
@@ -179,14 +175,6 @@
     </ImageAsset>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Default-568h@2x.png" />
-    <BundleResource Include="Resources\Default-Portrait.png" />
-    <BundleResource Include="Resources\Default-Portrait@2x.png" />
-    <BundleResource Include="Resources\Default.png" />
-    <BundleResource Include="Resources\Default@2x.png" />
-    <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
-  </ItemGroup>
-  <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -236,13 +224,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\chevron.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Cities.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\mountains.png" />
+    <BundleResource Include="Resources\profileone.jpg" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Ancient.png" />
@@ -251,40 +233,91 @@
     <BundleResource Include="Resources\background.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\gmail.png" />
+    <BundleResource Include="Resources\chevron.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\logoone.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\facebook.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\foodfive.jfif" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\foodfour.jfif" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\foodone.jfif" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\foodseven.jfif" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\foodsix.jfif" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\foodtwo.jfif" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\fooethree.jfif" />
+    <BundleResource Include="Resources\Cities.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\editprofile.png" />
   </ItemGroup>
   <ItemGroup>
+    <BundleResource Include="Resources\facebook.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\gmail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\logo01.jfif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\logo02.jfif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\logo03.jfif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\logoone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mealeight.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mealeleven.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mealfive.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mealforteen.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mealfour.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mealnine.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mealone.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mealseven.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mealsix.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mealten.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mealthirteen.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mealthree.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mealtwelve.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mealtwo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mountains.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\qpng.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\qsvg.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\quicklogo.png" />
+  </ItemGroup>
+  <ItemGroup>
     <BundleResource Include="Resources\svg.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\profiletwo.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

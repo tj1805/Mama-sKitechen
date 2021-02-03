@@ -45,9 +45,9 @@
             <yummy:PancakeView
                 Grid.Row="1"
                 BorderColor="{StaticResource BGcolor}"
-                BorderThickness="10"
-                CornerRadius="100"
-                HeightRequest="200"
+                BorderThickness="5"
+                CornerRadius="150"
+                HeightRequest="250"
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
                 WidthRequest="250">
@@ -59,7 +59,7 @@
                     <Image
                         x:Name="ProfileImage"
                         Aspect="AspectFill"
-                        Source="foodone" />
+                        Source="profileone" />
 
                 </Grid>
 
@@ -80,9 +80,10 @@
                         CornerRadius="20"
                         HeightRequest="50">
                         <Label
+                            Margin="10,0,0,0"
                             HorizontalOptions="Start"
                             Style="{StaticResource SemiBoldText}"
-                            Text="Ade"
+                            Text="Jane"
                             TextColor="{StaticResource BGcolor}"
                             VerticalOptions="Center" />
                     </yummy:PancakeView>
@@ -93,6 +94,7 @@
                         CornerRadius="20"
                         HeightRequest="50">
                         <Label
+                            Margin="10,0,0,0"
                             HorizontalOptions="Start"
                             Style="{StaticResource SemiBoldText}"
                             Text="West"
@@ -105,9 +107,10 @@
                     CornerRadius="20"
                     HeightRequest="50">
                     <Label
+                        Margin="10,0,0,0"
                         HorizontalOptions="Start"
                         Style="{StaticResource SemiBoldText}"
-                        Text="5 west fago street mushin "
+                        Text="5 west street lagos "
                         TextColor="{StaticResource BGcolor}"
                         VerticalOptions="Center" />
                 </yummy:PancakeView>
@@ -116,6 +119,7 @@
                     CornerRadius="20"
                     HeightRequest="50">
                     <Label
+                        Margin="10,0,0,0"
                         HorizontalOptions="Start"
                         Style="{StaticResource SemiBoldText}"
                         Text="08120759252"
@@ -129,8 +133,8 @@
             <yummy:PancakeView
                 Grid.Row="3"
                 Margin="0,0,0,0"
-                BackgroundColor="{StaticResource BGcolor}"
-                BorderColor="Firebrick"
+                BackgroundColor="{StaticResource WhiteColor}"
+                BorderColor="{StaticResource BGcolor}"
                 BorderThickness="5"
                 CornerRadius="80"
                 HeightRequest="80"
@@ -151,7 +155,7 @@
                         FontSize="14"
                         HorizontalOptions="Center"
                         Text="Sign Out"
-                        TextColor="{StaticResource Greencolor}" />
+                        TextColor="Red" />
                 </StackLayout>
             </yummy:PancakeView>
 
@@ -185,9 +189,9 @@
             </yummy:PancakeView>-->
             <yummy:PancakeView
                 Grid.Row="3"
-                BackgroundColor="{StaticResource BGcolor}"
-                BorderColor="BlueViolet"
-                BorderThickness="5"
+                BackgroundColor="White"
+                BorderColor="{StaticResource BGcolor}"
+                BorderThickness="4"
                 CornerRadius="40"
                 HorizontalOptions="End"
                 VerticalOptions="End"
@@ -204,27 +208,16 @@
                             HorizontalOptions="CenterAndExpand"
                             Rotation="180"
                             Text="{x:Static fonts:IconFont.Phone}"
-                            TextColor="Red"
+                            TextColor="{StaticResource BGcolor}"
                             VerticalOptions="End"
                             WidthRequest="20" />
-                        <!--<yummy:PancakeView
-                            BackgroundColor="White"
-                            CornerRadius="30"
-                            HeightRequest="50"
-                            WidthRequest="50">
-                            <Label
-                                FontSize="14"
-                                HorizontalOptions="Center"
-                                Text="Contact Us"
-                                TextColor="{StaticResource Greencolor}" />
-                        </yummy:PancakeView>-->
 
                     </Expander.Header>
                     <StackLayout Margin="10">
                         <yummy:PancakeView
-                            BackgroundColor="AliceBlue"
-                            BorderColor="Silver"
-                            BorderThickness="5"
+                            BackgroundColor="White"
+                            BorderColor="{StaticResource BGcolor}"
+                            BorderThickness="4"
                             CornerRadius="40"
                             HeightRequest="50">
                             <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
@@ -233,7 +226,7 @@
                                     Rotation="180"
                                     Style="{StaticResource SemiBoldTextSubtitle}"
                                     Text="Call Us"
-                                    TextColor="Red">
+                                    TextColor="{StaticResource BGcolor}">
                                     <Label.GestureRecognizers>
                                         <TapGestureRecognizer Command="{Binding CallCommand}" />
                                     </Label.GestureRecognizers>
@@ -241,20 +234,19 @@
                             </StackLayout>
                         </yummy:PancakeView>
                         <yummy:PancakeView
-                            BackgroundColor="AliceBlue"
-                            BorderColor="Silver"
-                            BorderThickness="5"
+                            BackgroundColor="White"
+                            BorderColor="{StaticResource BGcolor}"
+                            BorderThickness="4"
                             CornerRadius="40"
                             HeightRequest="50"
                             WidthRequest="50">
                             <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-
                                 <Label
                                     HorizontalOptions="Center"
                                     Rotation="180"
                                     Style="{StaticResource SemiBoldTextSubtitle}"
                                     Text="Store"
-                                    TextColor="Red">
+                                    TextColor="{StaticResource BGcolor}">
                                     <Label.GestureRecognizers>
                                         <TapGestureRecognizer Command="{Binding OpenMapPlaceMarkCommand}" />
                                     </Label.GestureRecognizers>

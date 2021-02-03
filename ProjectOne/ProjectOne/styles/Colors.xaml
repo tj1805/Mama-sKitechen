@@ -9,7 +9,8 @@
     mc:Ignorable="d">
 
     <Color x:Key="BGcolor">#010088</Color>
-    <Color x:Key="Greencolor">#00FF01</Color>
+    <Color x:Key="Greencolor">#047123</Color>
+    <Color x:Key="Deepcolor">#047123</Color>
     <Color x:Key="WhiteColor">#FFFFFF</Color>
 
     <!--<mtrl:MaterialColorConfiguration x:Key="Materail.Color"

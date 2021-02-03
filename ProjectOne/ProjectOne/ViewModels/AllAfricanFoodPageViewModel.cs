@@ -34,101 +34,93 @@ namespace ProjectOne.ViewModels
             {
                  new Walkthrough
                 {
-                     Id = 1,
                     Heading = "Rice",
                     Caption = "Delious",
-                    Image = "foodone"
+                    Image = "mealone",
+                    ItemPrice =2000
                 },
                  new Walkthrough
-                {   Id=2,
-                    Heading = "Beams",
+                {
+                    Heading = "Lorem",
                     Caption = "sweet",
-                    Image = "foodtwo"
+                    Image = "mealtwo",
+                     ItemPrice =2000
                 },
 
                   new Walkthrough
-                {    Id=3,
-                    Heading = "Yam",
+                {
+                    Heading = "Lorem",
                     Caption = "sweet",
-                    Image = "foodfour"
+                    Image = "mealthree",
+                     ItemPrice =2000
                 },
                   new Walkthrough
-                {   Id=4,
-                    Heading = "Yam",
+                {
+                    Heading = "Lorem",
                     Caption = "sweet",
-                    Image = "foodfive"
+                    Image = "mealfour",
+                     ItemPrice =2000
                 },
                      new Walkthrough
-                {       Id=5,
-                    Heading = "Yam",
+                {
+                    Heading = "Lorem",
                     Caption = "sweet",
-                    Image = "foodsix"
+                    Image = "mealfive",
+                     ItemPrice =2000
                 },
-                      new Walkthrough
-                {  Id=6,
-                    Heading = "Rice",
+
+                     new Walkthrough
+                {
+                    Heading = "Lorem",
                     Caption = "Delious",
-                    Image = "foodone"
+                    Image = "mealsix",
+                     ItemPrice =2000
                 },
                  new Walkthrough
-                { Id=7,
-                    Heading = "Beams",
+                {
+                    Heading = "Lorem",
                     Caption = "sweet",
-                    Image = "foodtwo"
+                    Image = "mealseven",
+                     ItemPrice =2000
                 },
 
                   new Walkthrough
-                { Id=8,
-                    Heading = "Yam",
+                {
+                    Heading = "Lorem",
                     Caption = "sweet",
-                    Image = "foodfour"
+                    Image = "mealeight",
+                     ItemPrice =2000
                 },
                   new Walkthrough
-                {  Id=9,
-                    Heading = "Yam",
+                {
+                    Heading = "Lorem",
                     Caption = "sweet",
-                    Image = "foodfive"
+                    Image = "mealnine",
+                     ItemPrice =2000
                 },
                      new Walkthrough
-                { Id=10,
-                    Heading = "Yam",
+                {
+                    Heading = "Lorem",
                     Caption = "sweet",
-                    Image = "foodsix"
+                    Image = "mealten",
+                     ItemPrice =2000
                 },
-                      new Walkthrough
-                { Id=11,
-                    Heading = "Rice",
-                    Caption = "Delious",
-                    Image = "foodone"
-                },
-                 new Walkthrough
-                { Id=12,
-                    Heading = "Beams",
+                new Walkthrough
+                {
+                    Heading = "Lorem",
                     Caption = "sweet",
-                    Image = "foodtwo"
+                    Image = "mealeleven",
+                     ItemPrice =2000
                 },
-
-                  new Walkthrough
-                { Id=13,
-                    Heading = "Yam",
+                new Walkthrough
+                {
+                    Heading = "Lorem",
                     Caption = "sweet",
-                    Image = "foodfour"
-                },
-                  new Walkthrough
-                {  Id=14,
-                    Heading = "Yam",
-                    Caption = "sweet",
-                    Image = "foodfive"
-                },
-                     new Walkthrough
-                { Id=15,
-                    Heading = "Yam",
-                    Caption = "sweet",
-                    Image = "foodsix"
-                },
+                    Image = "mealforteen",
+                     ItemPrice =2000
+                }
 
             };
-            App.countNumber = walkThroughList.Count;
             return walkThroughList;
         }
 

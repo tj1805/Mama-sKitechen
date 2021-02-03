@@ -68,69 +68,73 @@ namespace ProjectOne.ViewModels
        
         async void SignIn()
         {
-            var loadingDialogConfiguration = new MaterialLoadingDialogConfiguration()
-            {
-                BackgroundColor = Color.FromHex("010088"),
-                MessageTextColor = Color.FromHex("FFFFFF"),
-              TintColor = Color.FromHex("FFFFFF"),
-                CornerRadius = 20,
-            };
+            // removed the signing up procees 
+            await _navigationService.NavigateAsync("HomePage");
 
-            var snackBarconfiguration = new MaterialSnackbarConfiguration()
-            {
-                TintColor = Color.FromHex("#00FF01"),
-                CornerRadius = 20,
-                MessageTextColor = Color.White,
-                BackgroundColor = Color.FromHex("#010088")
-            };
+            //signing inn process
+            //var loadingDialogConfiguration = new MaterialLoadingDialogConfiguration()
+            //{
+            //    BackgroundColor = Color.FromHex("010088"),
+            //    MessageTextColor = Color.FromHex("FFFFFF"),
+            //  TintColor = Color.FromHex("FFFFFF"),
+            //    CornerRadius = 20,
+            //};
 
-            var network = Connectivity.NetworkAccess;
-            if(network != NetworkAccess.Internet)
-            {
-                await MaterialDialog.Instance.SnackbarAsync(message: "Please connnect to internet",
-                                           actionButtonText: "OK",
-                                           msDuration: 3000,
-                                           configuration: snackBarconfiguration);
-                return;
-            }
+            //var snackBarconfiguration = new MaterialSnackbarConfiguration()
+            //{
+            //    TintColor = Color.FromHex("#00FF01"),
+            //    CornerRadius = 20,
+            //    MessageTextColor = Color.White,
+            //    BackgroundColor = Color.FromHex("#010088")
+            //};
 
-            if(Email == null || Password == null)
-            {
-                await MaterialDialog.Instance.SnackbarAsync(message: "Please Input fields",
-                                          actionButtonText: "OK",
-                                          msDuration: 3000,
-                                          configuration: snackBarconfiguration);
-                return;
-            }
-            IsBusy = false;
-            var loadingDialog = await MaterialDialog.Instance.LoadingDialogAsync(message: "Something is running...", configuration: loadingDialogConfiguration);
+            //var network = Connectivity.NetworkAccess;
+            //if(network != NetworkAccess.Internet)
+            //{
+            //    await MaterialDialog.Instance.SnackbarAsync(message: "Please connnect to internet",
+            //                               actionButtonText: "OK",
+            //                               msDuration: 3000,
+            //                               configuration: snackBarconfiguration);
+            //    return;
+            //}
 
-            var login = new Login()
-            {
-                Email = this.Email,
-                Password = this.Password
-            };
-            var loginservice = await remoteServices.LoginAsync(login);
-            await loadingDialog.DismissAsync();
-            IsBusy = true;
-            if(loginservice != null)
-            {
-                Settings.Email = loginservice.Email;
-                Settings.Address = loginservice.Address;
-                Settings.MobileNumber = loginservice.MobileNumber;
-                Settings.FirstName = loginservice.FirstName;
-                Settings.Surname = loginservice.Surname;
-                
-                await _navigationService.NavigateAsync("HomePage");
-            }
+            //if(Email == null || Password == null)
+            //{
+            //    await MaterialDialog.Instance.SnackbarAsync(message: "Please Input fields",
+            //                              actionButtonText: "OK",
+            //                              msDuration: 3000,
+            //                              configuration: snackBarconfiguration);
+            //    return;
+            //}
+            //IsBusy = false;
+            //var loadingDialog = await MaterialDialog.Instance.LoadingDialogAsync(message: "Something is running...", configuration: loadingDialogConfiguration);
 
-            else
-            {
-                await MaterialDialog.Instance.SnackbarAsync(message: "login failed",
-                                         actionButtonText: "OK",
-                                         msDuration: 3000,
-                                         configuration: snackBarconfiguration);
-            }
+            //var login = new Login()
+            //{
+            //    Email = this.Email,
+            //    Password = this.Password
+            //};
+            //var loginservice = await remoteServices.LoginAsync(login);
+            //await loadingDialog.DismissAsync();
+            //IsBusy = true;
+            //if(loginservice != null)
+            //{
+            //    Settings.Email = loginservice.Email;
+            //    Settings.Address = loginservice.Address;
+            //    Settings.MobileNumber = loginservice.MobileNumber;
+            //    Settings.FirstName = loginservice.FirstName;
+            //    Settings.Surname = loginservice.Surname;
+
+            //    await _navigationService.NavigateAsync("HomePage");
+            //}
+
+            //else
+            //{
+            //    await MaterialDialog.Instance.SnackbarAsync(message: "login failed",
+            //                             actionButtonText: "OK",
+            //                             msDuration: 3000,
+            //                             configuration: snackBarconfiguration);
+            //}
 
         }
 

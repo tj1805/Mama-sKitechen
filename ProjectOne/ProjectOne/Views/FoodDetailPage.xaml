@@ -101,7 +101,7 @@
         </StackLayout>
         <yummy:PancakeView
             Grid.Row="4"
-            BorderColor="{StaticResource Greencolor}"
+            BorderColor="{StaticResource BGcolor}"
             BorderThickness="5"
             CornerRadius="20"
             HeightRequest="50"

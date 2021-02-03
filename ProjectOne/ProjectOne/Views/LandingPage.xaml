@@ -13,84 +13,83 @@
     NavigationPage.HasNavigationBar="False">
 
     <!--  ios:Page.UseSafeArea="true"  -->
-
-    <yummy:PancakeView
-        BackgroundGradientAngle="150"
-        BackgroundGradientEndColor="White"
-        BackgroundGradientStartColor="#010088"
-        CornerRadius="0,0,60,100"
-        Elevation="0"
-        HasShadow="True"
-        IsClippedToBounds="true">
-        <Grid>
+    <Grid BackgroundColor="White">
+        <StackLayout
+            Padding="10"
+            HorizontalOptions="Center"
+            Spacing="30"
+            VerticalOptions="Center">
+            <Image
+                x:Name="Logo"
+                Source="quicklogo"
+                TranslationY="-20"
+                VerticalOptions="Start" />
+            <Label
+                x:Name="WelcomeText"
+                FontFamily="{StaticResource SemiBoldFont}"
+                HorizontalOptions="Center"
+                Text="Welcome to QuIck~Food"
+                TextColor="#010088" />
             <yummy:PancakeView
-                Margin="20,70,20,20"
-                BackgroundColor="White"
-                CornerRadius="60,60,60,100"
-                Elevation="20"
-                HasShadow="True"
-                IsClippedToBounds="true">
-                <StackLayout
-                    Padding="10"
+                x:Name="SignInButton"
+                sharedTransitions:Transition.Name="signintransition"
+                BorderColor="#010088"
+                BorderThickness="4"
+                CornerRadius="10"
+                HeightRequest="50"
+                HorizontalOptions="FillAndExpand">
+                <Label
+                    FontFamily="{StaticResource SemiBoldFont}"
                     HorizontalOptions="Center"
-                    Spacing="30"
-                    VerticalOptions="Center">
-                    <Image
-                        x:Name="Logo"
-                        Source="logoone"
-                        TranslationY="-20"
-                        VerticalOptions="Start" />
-                    <Label
-                        x:Name="WelcomeText"
+                    Text="SignIn"
+                    TextColor="#010088"
+                    VerticalOptions="Center" />
+                <yummy:PancakeView.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SignInCommand}" />
+                </yummy:PancakeView.GestureRecognizers>
+            </yummy:PancakeView>
+            <yummy:PancakeView
+                x:Name="SignOutButton"
+                sharedTransitions:Transition.Name="signuptransition"
+                BorderColor="#010088"
+                BorderThickness="4"
+                CornerRadius="10"
+                HeightRequest="50"
+                HorizontalOptions="FillAndExpand">
+                <Label
+                    FontFamily="{StaticResource SemiBoldFont}"
+                    HorizontalOptions="Center"
+                    Text="SignUp"
+                    TextColor="#010088"
+                    VerticalOptions="Center" />
+                <yummy:PancakeView.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SignUpCommand}" />
+                </yummy:PancakeView.GestureRecognizers>
+
+            </yummy:PancakeView>
+        </StackLayout>
+    </Grid>
+
+    <!--<yummy:PancakeView
+                    x:Name="SignOutButton"
+                    sharedTransitions:Transition.Name="signuptransition"
+                    BackgroundGradientAngle="45"
+                    BackgroundGradientEndColor="LightBlue"
+                    BackgroundGradientStartColor="#010088"
+                    BorderColor="#00FF01"
+                    BorderThickness="4"
+                    CornerRadius="10"
+                    HeightRequest="50"
+                    HorizontalOptions="FillAndExpand">
+        <Label
                         FontFamily="{StaticResource SemiBoldFont}"
                         HorizontalOptions="Center"
-                        Text="Welcome to mama Mia's Kitchen"
-                        TextColor="#010088" />
-                    <yummy:PancakeView
-                        x:Name="SignInButton"
-                        sharedTransitions:Transition.Name="signintransition"
-                        BackgroundGradientAngle="45"
-                        BackgroundGradientEndColor="LightBlue"
-                        BackgroundGradientStartColor="#010088"
-                        BorderColor="#00FF01"
-                        BorderThickness="4"
-                        CornerRadius="10"
-                        HeightRequest="50"
-                        HorizontalOptions="FillAndExpand">
-                        <Label
-                            FontFamily="{StaticResource SemiBoldFont}"
-                            HorizontalOptions="Center"
-                            Text="SignIn"
-                            TextColor="#00FF01"
-                            VerticalOptions="Center" />
-                        <yummy:PancakeView.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding SignInCommand}" />
-                        </yummy:PancakeView.GestureRecognizers>
-                    </yummy:PancakeView>
-                    <yummy:PancakeView
-                        x:Name="SignOutButton"
-                        sharedTransitions:Transition.Name="signuptransition"
-                        BackgroundGradientAngle="45"
-                        BackgroundGradientEndColor="LightBlue"
-                        BackgroundGradientStartColor="#010088"
-                        BorderColor="#00FF01"
-                        BorderThickness="4"
-                        CornerRadius="10"
-                        HeightRequest="50"
-                        HorizontalOptions="FillAndExpand">
-                        <Label
-                            FontFamily="{StaticResource SemiBoldFont}"
-                            HorizontalOptions="Center"
-                            Text="SignUp"
-                            TextColor="#00FF01"
-                            VerticalOptions="Center" />
-                        <yummy:PancakeView.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding SignUpCommand}" />
-                        </yummy:PancakeView.GestureRecognizers>
+                        Text="SignUp"
+                        TextColor="#00FF01"
+                        VerticalOptions="Center" />
+        <yummy:PancakeView.GestureRecognizers>
+            <TapGestureRecognizer Command="{Binding SignUpCommand}" />
+        </yummy:PancakeView.GestureRecognizers>
 
-                    </yummy:PancakeView>
-                </StackLayout>
-            </yummy:PancakeView>
-        </Grid>
-    </yummy:PancakeView>
+    </yummy:PancakeView>-->
 </ContentPage>

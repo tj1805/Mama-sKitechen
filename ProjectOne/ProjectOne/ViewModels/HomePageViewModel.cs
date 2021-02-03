@@ -14,6 +14,8 @@ namespace ProjectOne.ViewModels
 
         private readonly INavigationService _navigationService;
         public List<Walkthrough> Walkthroughs { get => GetWalkthroughs(); }
+        public List<Walkthrough> ItalianList { get => GetItalianList(); }
+        public List<Walkthrough> AfricanList { get => GetAfricanList(); }
 
        
         private DelegateCommand _favoriteCommand;
@@ -46,38 +48,38 @@ namespace ProjectOne.ViewModels
             {
                  new Walkthrough
                 {
-                    Heading = "Rice",
-                    Caption = "Delious",
-                    Image = "foodone",
+                    Heading = "Lorem",
+                    Caption = "ipsum",
+                    Image = "mealone",
                     ItemPrice =2000
                 },
                  new Walkthrough
                 {
-                    Heading = "Beans",
-                    Caption = "sweet",
-                    Image = "foodtwo",
+                    Heading = "Lorem",
+                    Caption = "ipsum",
+                    Image = "mealtwo",
                       ItemPrice =2000
                 },
                
                   new Walkthrough
                 {
-                    Heading = "Yam",
-                    Caption = "sweet",
-                    Image = "foodfour",
+                    Heading = "Lorem",
+                    Caption = "ipsum",
+                    Image = "mealthree",
                     ItemPrice = 2000
                 },
                   new Walkthrough
                 {
-                    Heading = "Yam",
-                    Caption = "sweet",
-                    Image = "foodfive",
+                    Heading = "Lorem",
+                    Caption = "ipsum",
+                    Image = "mealfour",
                     ItemPrice = 2000
                 },
                      new Walkthrough
                 {
-                    Heading = "Yam",
-                    Caption = "sweet",
-                    Image = "foodsix",
+                    Heading = "Lorem",
+                    Caption = "ipsum",
+                    Image = "mealfive",
                     ItemPrice = 2000
                 }
 
@@ -86,7 +88,98 @@ namespace ProjectOne.ViewModels
             return walkThroughList;
            }
 
-       
+        private List<Walkthrough> GetItalianList()
+        {
+            var walkThroughList = new List<Walkthrough>()
+            {
+                 new Walkthrough
+                {
+                    Heading = "Lorem",
+                    Caption = "ipsum",
+                    Image = "mealsix",
+                    ItemPrice =2000
+                },
+                 new Walkthrough
+                {
+                    Heading = "Lorem",
+                    Caption = "ipsum",
+                    Image = "mealseven",
+                      ItemPrice =2000
+                },
+
+                  new Walkthrough
+                {
+                    Heading = "Lorem",
+                    Caption = "ipsum",
+                    Image = "mealeight",
+                    ItemPrice = 2000
+                },
+                  new Walkthrough
+                {
+                    Heading = "Lorem",
+                    Caption = "ipsum",
+                    Image = "mealnine",
+                    ItemPrice = 2000
+                },
+                     new Walkthrough
+                {
+                    Heading = "Lorem",
+                    Caption = "ipsum ",
+                    Image = "mealfive",
+                    ItemPrice = 2000
+                }
+
+            };
+            return walkThroughList;
+        }
+
+         private List<Walkthrough> GetAfricanList()
+        {
+            var walkThroughList = new List<Walkthrough>()
+            {
+                 new Walkthrough
+                {
+                    Heading = "Lorem",
+                    Caption = "ipsum ",
+                    Image = "mealforteen",
+                    ItemPrice =2000
+                },
+                 new Walkthrough
+                {
+                    Heading = "Lorem",
+                    Caption = "ipsum ",
+                    Image = "mealeleven",
+                      ItemPrice =2000
+                },
+
+                  new Walkthrough
+                {
+                    Heading = "Lorem",
+                    Caption = "ipsum ",
+                    Image = "mealten",
+                    ItemPrice = 2000
+                },
+                  new Walkthrough
+                {
+                    Heading = "Lorem",
+                    Caption = "ipsum ",
+                    Image = "mealnine",
+                    ItemPrice = 2000
+                },
+                     new Walkthrough
+                {
+                    Heading = "Lorem",
+                    Caption = "ipsum ",
+                    Image = "mealfive",
+                    ItemPrice = 2000
+                }
+
+            };
+            return walkThroughList;
+        }
+
+        
+
         async void FavoriteClicked()
         {
              await _navigationService.NavigateAsync("FavoritePage");

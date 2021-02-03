@@ -12,83 +12,37 @@
     prism:ViewModelLocator.AutowireViewModel="True"
     NavigationPage.HasNavigationBar="False">
 
-    <yummy:PancakeView
-        BackgroundGradientAngle="150"
-        BackgroundGradientEndColor="White"
-        BackgroundGradientStartColor="#010088"
-        CornerRadius="0,0,60,100"
-        Elevation="0"
-        HasShadow="True"
-        IsClippedToBounds="true">
-        <Grid>
-            <Label
-                x:Name="SignUpText"
-                Margin="20"
-                HorizontalOptions="Center"
-                Style="{StaticResource BoldText}"
-                Text="SignUp"
-                TextColor="#010088"
-                VerticalOptions="Start" />
+
+    <Grid>
+        <Label
+            x:Name="SignUpText"
+            Margin="20"
+            HorizontalOptions="Center"
+            Style="{StaticResource BoldText}"
+            Text="SignUp"
+            TextColor="#010088"
+            VerticalOptions="Start" />
 
 
-            <yummy:PancakeView
-                Margin="20,70,20,20"
-                BackgroundColor="White"
-                CornerRadius="60,60,60,100"
-                Elevation="20"
-                HasShadow="True"
-                HeightRequest="300"
-                IsClippedToBounds="true">
-                <ScrollView>
-                    <StackLayout Padding="20" Spacing="10">
+        <yummy:PancakeView
+            Margin="20,70,20,20"
+            BackgroundColor="White"
+            CornerRadius="60,60,60,100"
+            Elevation="20"
+            HasShadow="True"
+            HeightRequest="300"
+            IsClippedToBounds="true">
+            <ScrollView>
+                <StackLayout Padding="20" Spacing="10">
 
-                        <StackLayout
-                            HorizontalOptions="CenterAndExpand"
-                            Orientation="Horizontal"
-                            Spacing="10">
-                            <yummy:PancakeView
-                                x:Name="SurnameEntry"
-                                CornerRadius="20"
-                                WidthRequest="150">
-                                <material:MaterialTextField
-                                    AlwaysShowUnderline="False"
-                                    BackgroundColor="AliceBlue"
-                                    FloatingPlaceholderColor="#010088"
-                                    FloatingPlaceholderEnabled="True"
-                                    InputType="Email"
-                                    IsEnabled="{Binding IsBusy}"
-                                    Placeholder="Surname"
-                                    PlaceholderColor="#010088"
-                                    PlaceholderFontFamily="{StaticResource SemiBoldFont}"
-                                    ReturnType="Next"
-                                    Text="{Binding Surname}"
-                                    TextColor="#010088"
-                                    TextFontFamily="{StaticResource SemiBoldFont}" />
-                            </yummy:PancakeView>
-
-                            <yummy:PancakeView
-                                x:Name="FirstNameEntry"
-                                CornerRadius="20"
-                                WidthRequest="150">
-                                <material:MaterialTextField
-                                    AlwaysShowUnderline="False"
-                                    BackgroundColor="AliceBlue"
-                                    FloatingPlaceholderColor="#010088"
-                                    FloatingPlaceholderEnabled="True"
-                                    InputType="Email"
-                                    IsEnabled="{Binding IsBusy}"
-                                    Placeholder="First Name"
-                                    PlaceholderColor="#010088"
-                                    PlaceholderFontFamily="{StaticResource SemiBoldFont}"
-                                    ReturnType="Next"
-                                    Text="{Binding Firstname}"
-                                    TextColor="#010088"
-                                    TextFontFamily="{StaticResource SemiBoldFont}" />
-                            </yummy:PancakeView>
-                        </StackLayout>
-
-
-                        <yummy:PancakeView x:Name="EmailEntry" CornerRadius="20">
+                    <StackLayout
+                        HorizontalOptions="CenterAndExpand"
+                        Orientation="Horizontal"
+                        Spacing="10">
+                        <yummy:PancakeView
+                            x:Name="SurnameEntry"
+                            CornerRadius="20"
+                            WidthRequest="150">
                             <material:MaterialTextField
                                 AlwaysShowUnderline="False"
                                 BackgroundColor="AliceBlue"
@@ -96,96 +50,132 @@
                                 FloatingPlaceholderEnabled="True"
                                 InputType="Email"
                                 IsEnabled="{Binding IsBusy}"
-                                Placeholder="Email"
+                                Placeholder="Surname"
                                 PlaceholderColor="#010088"
                                 PlaceholderFontFamily="{StaticResource SemiBoldFont}"
                                 ReturnType="Next"
-                                Text="{Binding Email}"
-                                TextColor="#010088"
-                                TextFontFamily="{StaticResource SemiBoldFont}" />
-                        </yummy:PancakeView>
-
-                        <yummy:PancakeView x:Name="AddressEntry" CornerRadius="20">
-                            <material:MaterialTextField
-                                AlwaysShowUnderline="False"
-                                BackgroundColor="AliceBlue"
-                                FloatingPlaceholderColor="#010088"
-                                FloatingPlaceholderEnabled="True"
-                                InputType="Default"
-                                IsEnabled="{Binding IsBusy}"
-                                Placeholder="Address"
-                                PlaceholderColor="#010088"
-                                PlaceholderFontFamily="{StaticResource SemiBoldFont}"
-                                ReturnType="Next"
-                                Text="{Binding Address}"
-                                TextColor="#010088"
-                                TextFontFamily="{StaticResource SemiBoldFont}" />
-                        </yummy:PancakeView>
-
-                        <yummy:PancakeView x:Name="MobileNumberEntry" CornerRadius="20">
-                            <material:MaterialTextField
-                                AlwaysShowUnderline="False"
-                                BackgroundColor="AliceBlue"
-                                FloatingPlaceholderColor="#010088"
-                                FloatingPlaceholderEnabled="True"
-                                InputType="Numeric"
-                                IsEnabled="{Binding IsBusy}"
-                                Placeholder="Mobile number"
-                                PlaceholderColor="#010088"
-                                PlaceholderFontFamily="{StaticResource SemiBoldFont}"
-                                ReturnType="Next"
-                                Text="{Binding MobileNumber}"
-                                TextColor="#010088"
-                                TextFontFamily="{StaticResource SemiBoldFont}" />
-                        </yummy:PancakeView>
-
-                        <yummy:PancakeView x:Name="PasswordEntry" CornerRadius="20">
-                            <material:MaterialTextField
-                                AlwaysShowUnderline="False"
-                                BackgroundColor="AliceBlue"
-                                FloatingPlaceholderColor="#010088"
-                                FloatingPlaceholderEnabled="True"
-                                InputType="Password"
-                                IsEnabled="{Binding IsBusy}"
-                                Placeholder="Password"
-                                PlaceholderColor="#010088"
-                                PlaceholderFontFamily="{StaticResource SemiBoldFont}"
-                                ReturnType="Next"
-                                Text="{Binding Password}"
-                                TextColor="#010088"
-                                TextFontFamily="{StaticResource SemiBoldFont}" />
-                        </yummy:PancakeView>
-
-                        <yummy:PancakeView x:Name="ConfrimPasswordEntry" CornerRadius="20">
-                            <material:MaterialTextField
-                                AlwaysShowUnderline="False"
-                                BackgroundColor="AliceBlue"
-                                FloatingPlaceholderColor="#010088"
-                                FloatingPlaceholderEnabled="True"
-                                InputType="Password"
-                                IsEnabled="{Binding IsBusy}"
-                                Placeholder="Confirm Password"
-                                PlaceholderColor="#010088"
-                                PlaceholderFontFamily="{StaticResource SemiBoldFont}"
-                                ReturnCommand="{Binding SignUpCommand}"
-                                ReturnType="Send"
-                                Text="{Binding ConfirmPassword}"
+                                Text="{Binding Surname}"
                                 TextColor="#010088"
                                 TextFontFamily="{StaticResource SemiBoldFont}" />
                         </yummy:PancakeView>
 
                         <yummy:PancakeView
-                            Margin="0,30,0,0"
-                            sharedTransitions:Transition.Name="signuptransition"
-                            BackgroundGradientAngle="45"
-                            BackgroundGradientEndColor="LightBlue"
-                            BackgroundGradientStartColor="#010088"
-                            BorderColor="#00FF01"
-                            BorderThickness="4"
-                            CornerRadius="10,10,10,10"
-                            HeightRequest="60"
-                            HorizontalOptions="FillAndExpand">
-                            <!--<material:MaterialButton
+                            x:Name="FirstNameEntry"
+                            CornerRadius="20"
+                            WidthRequest="150">
+                            <material:MaterialTextField
+                                AlwaysShowUnderline="False"
+                                BackgroundColor="AliceBlue"
+                                FloatingPlaceholderColor="#010088"
+                                FloatingPlaceholderEnabled="True"
+                                InputType="Email"
+                                IsEnabled="{Binding IsBusy}"
+                                Placeholder="First Name"
+                                PlaceholderColor="#010088"
+                                PlaceholderFontFamily="{StaticResource SemiBoldFont}"
+                                ReturnType="Next"
+                                Text="{Binding Firstname}"
+                                TextColor="#010088"
+                                TextFontFamily="{StaticResource SemiBoldFont}" />
+                        </yummy:PancakeView>
+                    </StackLayout>
+
+
+                    <yummy:PancakeView x:Name="EmailEntry" CornerRadius="20">
+                        <material:MaterialTextField
+                            AlwaysShowUnderline="False"
+                            BackgroundColor="AliceBlue"
+                            FloatingPlaceholderColor="#010088"
+                            FloatingPlaceholderEnabled="True"
+                            InputType="Email"
+                            IsEnabled="{Binding IsBusy}"
+                            Placeholder="Email"
+                            PlaceholderColor="#010088"
+                            PlaceholderFontFamily="{StaticResource SemiBoldFont}"
+                            ReturnType="Next"
+                            Text="{Binding Email}"
+                            TextColor="#010088"
+                            TextFontFamily="{StaticResource SemiBoldFont}" />
+                    </yummy:PancakeView>
+
+                    <yummy:PancakeView x:Name="AddressEntry" CornerRadius="20">
+                        <material:MaterialTextField
+                            AlwaysShowUnderline="False"
+                            BackgroundColor="AliceBlue"
+                            FloatingPlaceholderColor="#010088"
+                            FloatingPlaceholderEnabled="True"
+                            InputType="Default"
+                            IsEnabled="{Binding IsBusy}"
+                            Placeholder="Address"
+                            PlaceholderColor="#010088"
+                            PlaceholderFontFamily="{StaticResource SemiBoldFont}"
+                            ReturnType="Next"
+                            Text="{Binding Address}"
+                            TextColor="#010088"
+                            TextFontFamily="{StaticResource SemiBoldFont}" />
+                    </yummy:PancakeView>
+
+                    <yummy:PancakeView x:Name="MobileNumberEntry" CornerRadius="20">
+                        <material:MaterialTextField
+                            AlwaysShowUnderline="False"
+                            BackgroundColor="AliceBlue"
+                            FloatingPlaceholderColor="#010088"
+                            FloatingPlaceholderEnabled="True"
+                            InputType="Numeric"
+                            IsEnabled="{Binding IsBusy}"
+                            Placeholder="Mobile number"
+                            PlaceholderColor="#010088"
+                            PlaceholderFontFamily="{StaticResource SemiBoldFont}"
+                            ReturnType="Next"
+                            Text="{Binding MobileNumber}"
+                            TextColor="#010088"
+                            TextFontFamily="{StaticResource SemiBoldFont}" />
+                    </yummy:PancakeView>
+
+                    <yummy:PancakeView x:Name="PasswordEntry" CornerRadius="20">
+                        <material:MaterialTextField
+                            AlwaysShowUnderline="False"
+                            BackgroundColor="AliceBlue"
+                            FloatingPlaceholderColor="#010088"
+                            FloatingPlaceholderEnabled="True"
+                            InputType="Password"
+                            IsEnabled="{Binding IsBusy}"
+                            Placeholder="Password"
+                            PlaceholderColor="#010088"
+                            PlaceholderFontFamily="{StaticResource SemiBoldFont}"
+                            ReturnType="Next"
+                            Text="{Binding Password}"
+                            TextColor="#010088"
+                            TextFontFamily="{StaticResource SemiBoldFont}" />
+                    </yummy:PancakeView>
+
+                    <yummy:PancakeView x:Name="ConfrimPasswordEntry" CornerRadius="20">
+                        <material:MaterialTextField
+                            AlwaysShowUnderline="False"
+                            BackgroundColor="AliceBlue"
+                            FloatingPlaceholderColor="#010088"
+                            FloatingPlaceholderEnabled="True"
+                            InputType="Password"
+                            IsEnabled="{Binding IsBusy}"
+                            Placeholder="Confirm Password"
+                            PlaceholderColor="#010088"
+                            PlaceholderFontFamily="{StaticResource SemiBoldFont}"
+                            ReturnCommand="{Binding SignUpCommand}"
+                            ReturnType="Send"
+                            Text="{Binding ConfirmPassword}"
+                            TextColor="#010088"
+                            TextFontFamily="{StaticResource SemiBoldFont}" />
+                    </yummy:PancakeView>
+
+                    <yummy:PancakeView
+                        Margin="0,30,0,0"
+                        sharedTransitions:Transition.Name="signuptransition"
+                        BorderColor="#010088"
+                        BorderThickness="4"
+                        CornerRadius="10,10,10,10"
+                        HeightRequest="50"
+                        HorizontalOptions="FillAndExpand">
+                        <!--<material:MaterialButton
                                 AllCaps="False"
                                 ButtonType="Text"
                                 Command="{Binding SignUpCommand}"
@@ -194,76 +184,76 @@
                                 Style="{StaticResource ButttonStyle}"
                                 Text="SignUp"
                                 VerticalOptions="Center" />-->
-                            <Label
-                                FontFamily="{StaticResource SemiBoldFont}"
-                                HorizontalOptions="Center"
-                                IsEnabled="{Binding IsBusy}"
-                                Text="SignUp"
-                                TextColor="#00FF01"
-                                VerticalOptions="Center" />
-                            <yummy:PancakeView.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding SignUpCommand}" />
-                            </yummy:PancakeView.GestureRecognizers>
-
-
-                        </yummy:PancakeView>
-
-                        <StackLayout
-                            Margin="0,10,0,0"
-                            Orientation="Horizontal"
-                            Spacing="0">
-                            <Label
-                                FontFamily="{StaticResource SemiBoldFont}"
-                                FontSize="14"
-                                Text="By signup,you agree with "
-                                TextColor="#010088" />
-                            <Label
-                                FontFamily="{StaticResource BoldFont}"
-                                FontSize="14"
-                                Text="Terms And Condition"
-                                TextColor="Red">
-
-                                <Label.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding TermsCommand}" />
-                                </Label.GestureRecognizers>
-                            </Label>
-
-                        </StackLayout>
-
-                        <BoxView
-                            Margin="0,10"
-                            BackgroundColor="#010088"
-                            HeightRequest="1"
-                            HorizontalOptions="Fill" />
-
-                        <StackLayout
-                            Margin="0,10,0,0"
+                        <Label
+                            FontFamily="{StaticResource SemiBoldFont}"
                             HorizontalOptions="Center"
-                            Orientation="Horizontal"
-                            Spacing="0">
-                            <Label
-                                FontFamily="{StaticResource SemiBoldFont}"
-                                FontSize="14"
-                                Text="Already have an account "
-                                TextColor="#010088" />
-                            <Label
-                                FontFamily="{StaticResource BoldFont}"
-                                FontSize="16"
-                                Text="SignIn"
-                                TextColor="DarkGreen">
-                                <Label.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding SignInCommand}" />
-                                </Label.GestureRecognizers>
-                            </Label>
-                        </StackLayout>
+                            IsEnabled="{Binding IsBusy}"
+                            Text="SignUp"
+                            TextColor="#010088"
+                            VerticalOptions="Center" />
+                        <yummy:PancakeView.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding SignUpCommand}" />
+                        </yummy:PancakeView.GestureRecognizers>
 
 
+                    </yummy:PancakeView>
+
+                    <StackLayout
+                        Margin="0,10,0,0"
+                        Orientation="Horizontal"
+                        Spacing="0">
+                        <Label
+                            FontFamily="{StaticResource SemiBoldFont}"
+                            FontSize="14"
+                            Text="By signup,you agree with "
+                            TextColor="#010088" />
+                        <Label
+                            FontFamily="{StaticResource BoldFont}"
+                            FontSize="14"
+                            Text="Terms And Condition"
+                            TextColor="Red">
+
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding TermsCommand}" />
+                            </Label.GestureRecognizers>
+                        </Label>
 
                     </StackLayout>
 
-                </ScrollView>
+                    <BoxView
+                        Margin="0,10"
+                        BackgroundColor="#010088"
+                        HeightRequest="1"
+                        HorizontalOptions="Fill" />
 
-            </yummy:PancakeView>
-        </Grid>
-    </yummy:PancakeView>
+                    <StackLayout
+                        Margin="0,10,0,0"
+                        HorizontalOptions="Center"
+                        Orientation="Horizontal"
+                        Spacing="0">
+                        <Label
+                            FontFamily="{StaticResource SemiBoldFont}"
+                            FontSize="14"
+                            Text="Already have an account "
+                            TextColor="#010088" />
+                        <Label
+                            FontFamily="{StaticResource BoldFont}"
+                            FontSize="16"
+                            Text="SignIn"
+                            TextColor="{StaticResource Deepcolor}">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding SignInCommand}" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
+
+
+
+                </StackLayout>
+
+            </ScrollView>
+
+        </yummy:PancakeView>
+    </Grid>
+
 </ContentPage>

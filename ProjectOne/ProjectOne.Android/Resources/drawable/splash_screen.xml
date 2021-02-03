@@ -8,7 +8,7 @@
         android:height="215dp"
         android:gravity="center">
     <bitmap
-        android:src="@drawable/logoone"
+        android:src="@drawable/quicklogo"
         android:tileMode="disabled"
         android:gravity="center"/>
   </item>
